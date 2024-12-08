@@ -1,9 +1,14 @@
-.menu-wrapper {
+.menu-item-wrapper {
     display: flex;
     padding: 12px 8px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+    background: #FFF;
+    cursor: pointer;
+}
+
+.menu-item-active {
     background: #F2F4F7;
 }
 

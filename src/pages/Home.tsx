@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import { Menu } from '../components/Menu';
+import { Menu } from '../components/menu/Menu';
 
 export const Home = () => {
   return (
