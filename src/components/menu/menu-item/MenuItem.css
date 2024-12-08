@@ -1,51 +1,51 @@
 .menu-item-wrapper {
-    display: flex;
-    padding: 12px 8px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: #FFF;
-    cursor: pointer;
+  display: flex;
+  padding: 12px 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
 }
 
 .menu-item-active {
-    background: #F2F4F7;
+  background: #f2f4f7;
 }
 
 .content-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .left-content-button {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .main-tasks-text {
-    /*font-family: 'Karla', sans-serif;*/
-    font-size: 16px;
-    font-weight: 600;
-    color: #1D2939;
+  /*font-family: 'Karla', sans-serif;*/
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d2939;
 }
 
 .button-counter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 6px;
-    background: #1D2939;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: #1d2939;
 }
 
 .counter-text {
-    color: white;
-    font-family: inter sans-serif;
-    font-size: 14px;
-    font-weight: 500;
+  color: white;
+  font-family: inter sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }

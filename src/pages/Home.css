@@ -1,19 +1,18 @@
 .home-wrapper {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .left-panel {
-    width: 320px;
-    background-color: white;
-    padding: 16px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  background-color: white;
+  padding: 16px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .task-board {
-    flex: 1;
-    background-color: #F2F4F7;
-    padding: 16px;
-    overflow-y: auto;
+  flex: 1;
+  background-color: #f2f4f7;
+  padding: 16px;
+  overflow-y: auto;
 }
-
