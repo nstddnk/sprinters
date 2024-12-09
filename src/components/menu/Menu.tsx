@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Menu.css'
 import { TasksIcon } from '../../icons/tasks.icon'
-import { MenuItem, MenuItemProps } from './menu-item/MenuItem'
+import { MenuItem } from './menu-item/MenuItem'
 import { NotificationIcon } from '../../icons/notification.icon'
 import { AnalyticsIcon } from '../../icons/analytics.icon'
 
@@ -10,36 +10,40 @@ export const Menu = () => {
 
   const menuItems = [
     {
-      Icon: <TasksIcon />,
+      Icon: <TasksIcon isActive={'1' === activeMenuItemId} />,
       title: 'Tasks',
       counter: '11',
       id: '1',
     },
     {
-      Icon: <NotificationIcon />,
+      Icon: <NotificationIcon isActive={'2' === activeMenuItemId} />,
       title: 'Notifications',
       counter: '17',
       id: '2',
     },
     {
-      Icon: <AnalyticsIcon />,
+      Icon: <AnalyticsIcon isActive={'3' === activeMenuItemId} />,
       title: 'Analytics',
       counter: '5',
       id: '3',
     },
   ]
 
+  const handleMenuItemClick = (id: string) => () => {
+    setActiveMenuItemId(id)
+  }
+
   return (
     <div className="menu-wrapper">
-      {menuItems.map(({ id, ...item }) => (
+      {menuItems.map(({ id, Icon, ...item }) => (
         <MenuItem
           {...item}
           key={id}
           isActive={id === activeMenuItemId}
-          onClick={() => {
-            setActiveMenuItemId(id)
-          }}
-        />
+          onClick={handleMenuItemClick(id)}
+        >
+          {Icon}
+        </MenuItem>
       ))}
     </div>
   )

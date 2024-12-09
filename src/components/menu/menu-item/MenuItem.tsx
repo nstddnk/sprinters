@@ -5,7 +5,7 @@ import cn from 'classnames'
 export type MenuItemProps = {
   title: string
   counter: string
-  Icon: React.JSX.Element
+  children: React.JSX.Element
   isActive: boolean
   onClick: () => void
 }
@@ -13,7 +13,7 @@ export type MenuItemProps = {
 export const MenuItem = ({
   title,
   counter,
-  Icon,
+  children,
   isActive,
   onClick,
 }: MenuItemProps) => {
@@ -24,8 +24,10 @@ export const MenuItem = ({
     >
       <div className="content-button">
         <div className="left-content-button">
-          {Icon}
-          <p className="main-tasks-text">{title}</p>
+          {children}
+          <p className={cn('button-text', { 'button-text-active': isActive })}>
+            {title}
+          </p>
         </div>
         <div className="button-counter">
           <p className="counter-text">{counter}</p>

@@ -8,8 +8,12 @@
   cursor: pointer;
 }
 
+.menu-item-wrapper:hover {
+  background: rgba(246, 247, 250, 0.67);
+}
+
 .menu-item-active {
-  background: #f2f4f7;
+  background: #edf2fa !important;
 }
 
 .content-button {
@@ -26,10 +30,13 @@
   align-items: center;
 }
 
-.main-tasks-text {
-  /*font-family: 'Karla', sans-serif;*/
+.button-text {
   font-size: 16px;
   font-weight: 600;
+  color: #667085;
+}
+
+.button-text-active {
   color: #1d2939;
 }
 
