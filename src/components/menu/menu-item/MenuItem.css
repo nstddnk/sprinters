@@ -1,3 +1,9 @@
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
 .menu-item-wrapper {
   display: flex;
   padding: 12px 8px;
@@ -6,6 +12,8 @@
   border-radius: 8px;
   background: #fff;
   cursor: pointer;
+  /*transition: all 0.5s ease;*/
+
 }
 
 .menu-item-wrapper:hover {
@@ -14,6 +22,8 @@
 
 .menu-item-active {
   background: #edf2fa !important;
+  /*transition: all 0.5s ease;*/
+  animation: pop 0.3s ease;
 }
 
 .content-button {
@@ -34,10 +44,12 @@
   font-size: 16px;
   font-weight: 600;
   color: #667085;
+  transition: all 0.5s ease;
 }
 
 .button-text-active {
   color: #1d2939;
+  transition: all 0.5s ease;
 }
 
 .button-counter {
@@ -47,12 +59,24 @@
   width: 20px;
   height: 20px;
   border-radius: 6px;
+  background: #f2f4f7;
+  transition: all 0.5s ease;
+}
+
+.button-counter-active {
   background: #1d2939;
+  transition: all 0.5s ease;
 }
 
 .counter-text {
-  color: white;
+  color: #344054;
   font-family: inter sans-serif;
   font-size: 14px;
   font-weight: 500;
+  transition: all 0.5s ease;
+}
+
+.counter-text-active {
+  color: white;
+  transition: all 0.5s ease;
 }

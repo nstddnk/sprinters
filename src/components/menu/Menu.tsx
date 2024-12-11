@@ -6,7 +6,7 @@ import { NotificationIcon } from '../../icons/notification.icon'
 import { AnalyticsIcon } from '../../icons/analytics.icon'
 
 export const Menu = () => {
-  const [activeMenuItemId, setActiveMenuItemId] = useState<string>('3')
+  const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
 
   const menuItems = [
     {

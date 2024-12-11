@@ -10,27 +10,20 @@ export type MenuItemProps = {
   onClick: () => void
 }
 
-export const MenuItem = ({
-  title,
-  counter,
-  children,
-  isActive,
-  onClick,
-}: MenuItemProps) => {
+export const MenuItem = ({ title, counter, children, isActive, onClick }: MenuItemProps) => {
   return (
-    <div
-      className={cn('menu-item-wrapper', { 'menu-item-active': isActive })}
-      onClick={onClick}
-    >
+    <div className={cn('menu-item-wrapper', { 'menu-item-active': isActive })} onClick={onClick}>
       <div className="content-button">
         <div className="left-content-button">
           {children}
-          <p className={cn('button-text', { 'button-text-active': isActive })}>
-            {title}
-          </p>
+          <p className={cn('button-text', { 'button-text-active': isActive })}>{title}</p>
         </div>
-        <div className="button-counter">
-          <p className="counter-text">{counter}</p>
+        <div
+          className={cn('button-counter', {
+            'button-counter-active': isActive,
+          })}
+        >
+          <p className={cn('counter-text', { 'counter-text-active': isActive })}>{counter}</p>
         </div>
       </div>
     </div>

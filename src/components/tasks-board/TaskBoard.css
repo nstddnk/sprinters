@@ -1,0 +1,37 @@
+.task-board {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.to-do-block,
+.doing-block,
+.done-block {
+  text-align: start;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  gap: 32px;
+  width: 320px;
+}
+
+.to-do-text,
+.doing-text,
+.done-text {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.112px;
+  color: #667085;
+  gap: 32px;
+}
+
+
+.cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  height: 100%;
+  box-sizing: border-box;
+  gap: 16px;
+}
