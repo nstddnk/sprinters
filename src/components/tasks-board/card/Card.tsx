@@ -1,5 +1,5 @@
 import React from 'react'
-import './Card.css'
+import styles from './Card.module.scss'
 import { ElipseIcon } from '../../../icons/ellipse.icon'
 import { LinkIcon } from '../../../icons/link.icon'
 import { PaperClipIcon } from '../../../icons/paper-clip.icon'
@@ -7,42 +7,42 @@ import { CommentIcon } from '../../../icons/comment.icon'
 
 export const Card = () => {
   return (
-    <div className="card-block">
-      <div className="card">
-        <p className="card-title">Make a Kanban App</p>
-        <div className="card-meta">
-          <time className="time" dateTime="2024-01-12">
+    <div className={styles.cardBlock}>
+      <div className={styles.card}>
+        <p className={styles.cardTitle}>Make a Kanban App</p>
+        <div className={styles.cardMeta}>
+          <time className={styles.time} dateTime="2024-01-12">
             12th Jan
           </time>
           <ElipseIcon />
-          <span className="created-by">Created by Prahlad</span>
+          <span className={styles.createdBy}>Created by Prahlad</span>
         </div>
-        <p className="description">
+        <p className={styles.description}>
           Please use trello and designs in Dribbble as reference. And carry on...
         </p>
-        <div className="image-placeholder">
+        <div className={styles.imagePlaceholder}>
           <p>Your image will appear here</p>
         </div>
-        <div className="link-section">
+        <div className={styles.linkSection}>
           <LinkIcon />
-          <a className="ellipsis-text" href="https://docs.google.com">
+          <a className={styles.ellipsisText} href="https://docs.google.com">
             docs.google.com
           </a>
           <PaperClipIcon />
-          <a className="file-link">main.psd</a>
+          <a className={styles.fileLink}>main.psd</a>
         </div>
-        <div className="tag-section">
-          <span className="tag-design">
-            <p className="tag-text-design">Design</p>
+        <div className={styles.tagSection}>
+          <span className={styles.tagDesign}>
+            <p className={styles.tagTextDesign}>Design</p>
           </span>
-          <span className="tag-development">
-            <p className="tag-text-development">Development</p>
+          <span className={styles.tagDevelopment}>
+            <p className={styles.tagTextDevelopment}>Development</p>
           </span>
         </div>
       </div>
-      <div className="card-comments">
+      <div className={styles.cardComments}>
         <CommentIcon />
-        <p className="amount-comments">3</p>
+        <p className={styles.amountComments}>3</p>
       </div>
     </div>
   )

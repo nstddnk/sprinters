@@ -1,15 +1,15 @@
 import React from 'react'
-import './Home.css'
+import styles from './Home.module.scss'
 import { Menu } from '../components/menu/Menu'
 import { TaskBoard } from '../components/tasks-board/TaskBoard'
 
 export const Home = () => {
   return (
-    <div className="home-wrapper">
-      <div className="left-panel">
+    <div className={styles.homeWrapper}>
+      <div className={styles.leftPanel}>
         <Menu />
       </div>
-      <div className="content-wrapper">
+      <div className={styles.contentWrapper}>
         <TaskBoard />
       </div>
     </div>

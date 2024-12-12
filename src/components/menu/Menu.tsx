@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Menu.css'
+import styles from './Menu.module.scss'
 import { TasksIcon } from '../../icons/tasks.icon'
 import { MenuItem } from './menu-item/MenuItem'
 import { NotificationIcon } from '../../icons/notification.icon'
@@ -34,7 +34,7 @@ export const Menu = () => {
   }
 
   return (
-    <div className="menu-wrapper">
+    <div className={styles.menuWrapper}>
       {menuItems.map(({ id, Icon, ...item }) => (
         <MenuItem
           {...item}

@@ -1,5 +1,5 @@
 import React from 'react'
-import './MenuItem.css'
+import styles from './MenuItem.module.scss'
 import cn from 'classnames'
 
 export type MenuItemProps = {
@@ -12,18 +12,23 @@ export type MenuItemProps = {
 
 export const MenuItem = ({ title, counter, children, isActive, onClick }: MenuItemProps) => {
   return (
-    <div className={cn('menu-item-wrapper', { 'menu-item-active': isActive })} onClick={onClick}>
-      <div className="content-button">
-        <div className="left-content-button">
+    <div
+      className={cn(styles.menuItemWrapper, { [styles.menuItemActive]: isActive })}
+      onClick={onClick}
+    >
+      <div className={styles.contentButton}>
+        <div className={styles.leftContentButton}>
           {children}
-          <p className={cn('button-text', { 'button-text-active': isActive })}>{title}</p>
+          <p className={cn(styles.buttonText, { [styles.buttonTextActive]: isActive })}>{title}</p>
         </div>
         <div
-          className={cn('button-counter', {
-            'button-counter-active': isActive,
+          className={cn(styles.buttonCounter, {
+            [styles.buttonCounterActive]: isActive,
           })}
         >
-          <p className={cn('counter-text', { 'counter-text-active': isActive })}>{counter}</p>
+          <p className={cn(styles.counterText, { [styles.counterTextActive]: isActive })}>
+            {counter}
+          </p>
         </div>
       </div>
     </div>

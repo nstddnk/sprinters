@@ -1,0 +1,130 @@
+.cardBlock {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background-color: #FCFCFD;
+  //box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0px 0.5px 2px 0px rgba(16, 24, 40, 0.3);
+  padding: 20px;
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 280px;
+  gap: 16px;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-family: Karla, sans-serif;
+  color: #1D2939;
+  font-weight: 550;
+  line-height: 30px;
+  letter-spacing: 1px;
+  font-style: normal;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  font-family: Karla, sans-serif;
+  color: #98a2b3;
+  font-size: 14px;
+  font-weight: 600;
+  padding-right: 10px;
+}
+
+.createdBy {
+  font-family: Karla, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #98a2b3;
+  padding-left: 10px;
+}
+
+.description {
+  font-family: Karla, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #98a2b3;
+  align-self: stretch;
+}
+
+.imagePlaceholder {
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: #e4e7ec;
+}
+
+.linkSection {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.ellipsisText {
+  white-space: nowrap;
+  max-width: 115px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tagSection {
+  display: flex;
+  gap: 8px;
+}
+
+.tagDesign {
+  display: flex;
+  padding: 6px 12px;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 6px;
+  background-color: #f2f4f7;
+}
+
+.tagTextDesign {
+  color: #475467;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tagDevelopment {
+  display: flex;
+  padding: 6px 12px;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 6px;
+  background-color: #d1fadf;
+}
+
+.tagTextDevelopment {
+  color: #12b76a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cardComments {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  gap: 8px;
+}
+
+.amountComments {
+  font-size: 15px;
+  font-weight: 500;
+  color: #98a2b3;
+}

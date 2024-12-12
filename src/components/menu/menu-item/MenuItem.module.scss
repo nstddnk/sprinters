@@ -1,10 +1,16 @@
 @keyframes pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.95); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.menu-item-wrapper {
+.menuItemWrapper {
   display: flex;
   padding: 12px 8px;
   justify-content: center;
@@ -13,46 +19,45 @@
   background: #fff;
   cursor: pointer;
   /*transition: all 0.5s ease;*/
-
 }
 
-.menu-item-wrapper:hover {
+.menuItemWrapper:hover {
   background: rgba(246, 247, 250, 0.67);
 }
 
-.menu-item-active {
+.menuItemActive {
   background: #edf2fa !important;
   /*transition: all 0.5s ease;*/
   animation: pop 0.3s ease;
 }
 
-.content-button {
+.contentButton {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.left-content-button {
+.leftContentButton {
   display: flex;
   gap: 8px;
   justify-content: flex-start;
   align-items: center;
 }
 
-.button-text {
+.buttonText {
   font-size: 16px;
   font-weight: 600;
   color: #667085;
   transition: all 0.5s ease;
 }
 
-.button-text-active {
+.buttonTextActive {
   color: #1d2939;
   transition: all 0.5s ease;
 }
 
-.button-counter {
+.buttonCounter {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,12 +68,12 @@
   transition: all 0.5s ease;
 }
 
-.button-counter-active {
+.buttonCounterActive {
   background: #1d2939;
   transition: all 0.5s ease;
 }
 
-.counter-text {
+.counterText {
   color: #344054;
   font-family: inter sans-serif;
   font-size: 14px;
@@ -76,7 +81,7 @@
   transition: all 0.5s ease;
 }
 
-.counter-text-active {
+.counterTextActive {
   color: white;
   transition: all 0.5s ease;
 }

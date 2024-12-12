@@ -1,19 +1,21 @@
-.home-wrapper {
+.homeWrapper {
   display: flex;
   width: 100%;
+  box-sizing: border-box;
 }
 
-.left-panel {
+.leftPanel {
   width: 320px;
   background-color: white;
   padding: 16px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
-.content-wrapper {
+.contentWrapper {
   display: flex;
-  width: 100%;
   background-color: #f2f4f7;
-  padding: 80px 40px 40px;
-  justify-content: center;
+  padding: 32px 40px 40px;
+  box-sizing: border-box;
+  flex-grow: 1;
 }

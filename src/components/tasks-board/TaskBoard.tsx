@@ -1,21 +1,29 @@
 import React from 'react'
-import './TaskBoard.css'
+import styles from './TaskBoard.module.scss'
 import { Card } from './card/Card'
 
 export const TaskBoard = () => {
   return (
-    <div className="task-board">
-      <div className="to-do-block">
-        <p className="to-do-text">TO DO</p>
-        <div className="cards-wrapper">
+    <div className={styles.taskBoard}>
+      <div className={styles.toDoBlock}>
+        <p className={styles.toDoText}>TO DO</p>
+        <div className={styles.cardsWrapper}>
+          <Card />
           <Card />
         </div>
       </div>
-      <div className="doing-block">
-        <p className="doing-text">DOING</p>
+      <div className={styles.doingBlock}>
+        <p className={styles.doingText}>DOING</p>
+        <div className={styles.cardsWrapper}>
+          <Card />
+        </div>
       </div>
-      <div className="done-block">
-        <p className="done-text">DONE</p>
+      <div className={styles.doneBlock}>
+        <p className={styles.doneText}>DONE</p>
+        <div className={styles.cardsWrapper}>
+          <Card />
+          <Card />
+        </div>
       </div>
     </div>
   )
