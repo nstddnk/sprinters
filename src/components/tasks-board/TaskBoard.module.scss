@@ -1,8 +1,15 @@
 .taskBoard {
   display: flex;
-  gap: 36px;
+  background-color: #f2f4f7;
+  flex: 1;
+  gap: 63px;
   align-items: flex-start;
   justify-content: center;
+  padding-top: 36px;
+}
+
+.taskColumns {
+  margin-top: 36px;
 }
 
 .toDoBlock,

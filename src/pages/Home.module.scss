@@ -5,17 +5,9 @@
 }
 
 .leftPanel {
-  width: 320px;
+  width: 300px;
   background-color: white;
   padding: 16px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-}
-
-.contentWrapper {
-  display: flex;
-  background-color: #f2f4f7;
-  padding: 32px 40px 40px;
-  box-sizing: border-box;
-  flex-grow: 1;
 }
