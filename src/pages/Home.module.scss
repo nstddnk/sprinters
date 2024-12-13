@@ -1,13 +1,21 @@
 .homeWrapper {
   display: flex;
+  height: 100vh;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .leftPanel {
-  width: 300px;
+  flex: 0 0 250px;
+  overflow: hidden;
+  position: static;
+  top: 0;
   background-color: white;
   padding: 16px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
+
+.rightPanel {
+  flex: 1;
+  overflow: scroll;
+}
+

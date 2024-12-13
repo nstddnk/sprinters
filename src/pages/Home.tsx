@@ -9,7 +9,9 @@ export const Home = () => {
       <div className={styles.leftPanel}>
         <Menu />
       </div>
-      <TaskBoard />
+      <div className={styles.rightPanel}>
+        <TaskBoard />
+      </div>
     </div>
   )
 }

@@ -12,9 +12,7 @@
   margin-top: 36px;
 }
 
-.toDoBlock,
-.doingBlock,
-.doneBlock {
+.taskColumn {
   text-align: start;
   flex-direction: column;
   box-sizing: border-box;
@@ -23,9 +21,7 @@
   width: 320px;
 }
 
-.toDoText,
-.doingText,
-.doneText {
+.columnTitle {
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.112px;
