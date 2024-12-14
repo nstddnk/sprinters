@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './App.module.scss'
-
+import 'bootstrap/dist/css/bootstrap.css'
+import './global/index.scss'
 import { Home } from './pages/Home'
 
 export const App = () => {
   return (
-    <div className={styles.appWrapper}>
+    <div>
       <Home />
     </div>
   )

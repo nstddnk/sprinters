@@ -3,6 +3,7 @@ import styles from './Card.module.scss'
 import { LinkIcon } from '../../../icons/link.icon'
 import { PaperClipIcon } from '../../../icons/paper-clip.icon'
 import { CommentIcon } from '../../../icons/comment.icon'
+import { Badge } from 'react-bootstrap'
 
 export const Card = () => {
   return (
@@ -42,17 +43,14 @@ export const Card = () => {
           </div>
         </div>
         <div className={styles.tagSection}>
-          <div className={styles.tagDesign}>
-            <p className={styles.tagTextDesign}>Design</p>
-          </div>
-          <div className={styles.tagDevelopment}>
-            <p className={styles.tagTextDevelopment}>Development</p>
-          </div>
+          <Badge bg="dark" className={styles.tagDesign}>
+            Primary
+          </Badge>
         </div>
       </div>
       <div className={styles.cardComments}>
         <CommentIcon />
-        <p className={styles.amountComments}>3</p>
+        <div className={styles.amountComments}>3</div>
       </div>
     </div>
   )

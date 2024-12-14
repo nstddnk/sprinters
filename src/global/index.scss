@@ -1,8 +1,8 @@
-@import 'variables';
-@import 'fonts';
-@import 'reset';
-@import 'mixins/breakpoint';
-@import 'typography';
+@import 'styles/variables';
+@import 'styles/fonts';
+@import 'styles/reset';
+@import 'styles/mixins/breakpoint';
+@import 'styles/typography';
 
 @include media-breakpoint-down(lg) {
   .container {

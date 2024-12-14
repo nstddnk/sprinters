@@ -19,16 +19,18 @@ export const MenuItem = ({ title, counter, children, isActive, onClick }: MenuIt
       <div className={styles.contentButton}>
         <div className={styles.leftContentButton}>
           {children}
-          <p className={cn(styles.buttonText, { [styles.buttonTextActive]: isActive })}>{title}</p>
+          <div className={cn(styles.buttonText, { [styles.buttonTextActive]: isActive })}>
+            {title}
+          </div>
         </div>
         <div
           className={cn(styles.buttonCounter, {
             [styles.buttonCounterActive]: isActive,
           })}
         >
-          <p className={cn(styles.counterText, { [styles.counterTextActive]: isActive })}>
+          <div className={cn(styles.counterText, { [styles.counterTextActive]: isActive })}>
             {counter}
-          </p>
+          </div>
         </div>
       </div>
     </div>

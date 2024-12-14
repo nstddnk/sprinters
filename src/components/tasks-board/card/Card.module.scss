@@ -1,3 +1,5 @@
+@import '../../../global/styles/variables';
+
 .cardBlock {
   display: flex;
   flex-direction: column;
@@ -94,12 +96,13 @@
 }
 
 .tagDesign {
-  display: flex;
+  //display: flex;
   padding: 6px 12px;
-  align-items: flex-start;
-  gap: 12px;
-  border-radius: 6px;
+  //align-items: flex-start;
+  //gap: 12px;
+  //border-radius: 6px;
   background-color: #f2f4f7;
+  font-family: $font-family-karla;
 }
 
 .tagTextDesign {
