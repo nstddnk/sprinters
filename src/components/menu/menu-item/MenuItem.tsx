@@ -19,9 +19,9 @@ export const MenuItem = ({ title, counter, children, isActive, onClick }: MenuIt
       <div className={styles.contentButton}>
         <div className={styles.leftContentButton}>
           {children}
-          <div className={cn(styles.buttonText, { [styles.buttonTextActive]: isActive })}>
+          <span className={cn(styles.buttonText, { [styles.buttonTextActive]: isActive })}>
             {title}
-          </div>
+          </span>
         </div>
         <div
           className={cn(styles.buttonCounter, {

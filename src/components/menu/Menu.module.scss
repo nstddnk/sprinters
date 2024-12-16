@@ -3,3 +3,25 @@
   flex-direction: column;
   gap: 4px;
 }
+
+.createTaskButton {
+  background-color: white;
+  color: #667085;
+  font-size: 16px;
+  font-family: Karla, sans-serif;
+  font-weight: 600;
+  //display: flex;
+  align-items: center;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  gap: 30px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: #edf2fa;
+    transition: all 0.5s ease;
+  }
+}

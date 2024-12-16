@@ -4,6 +4,7 @@ import { TasksIcon } from '../../icons/tasks.icon'
 import { MenuItem } from './menu-item/MenuItem'
 import { NotificationIcon } from '../../icons/notification.icon'
 import { AnalyticsIcon } from '../../icons/analytics.icon'
+import { CreateNewTaskButtonIcon } from '../../icons/create-new-task-button.icon'
 
 export const Menu = () => {
   const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
@@ -33,8 +34,16 @@ export const Menu = () => {
     setActiveMenuItemId(id)
   }
 
+  const handleCreateNewTask = () => {
+    console.log('Create New Task clicked')
+  }
+
   return (
     <div className={styles.menuWrapper}>
+      <button className={styles.createTaskButton} onClick={handleCreateNewTask}>
+        <CreateNewTaskButtonIcon />
+        Create New Task
+      </button>
       {menuItems.map(({ id, Icon, ...item }) => (
         <MenuItem
           {...item}
