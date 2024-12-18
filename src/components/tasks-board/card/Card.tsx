@@ -4,6 +4,7 @@ import { LinkIcon } from '../../../icons/link.icon'
 import { PaperClipIcon } from '../../../icons/paper-clip.icon'
 import { CommentIcon } from '../../../icons/comment.icon'
 import { Task } from '../../../pages/home/home.interface'
+import { Badge } from 'react-bootstrap'
 
 export const Card = ({
   title,
@@ -42,11 +43,11 @@ export const Card = ({
           </div>
         </div>
         <div className={styles.tagSection}>
-          {/*{tags.map(({ text, type }, index) => (*/}
-          {/*  <Badge bg={type} className={styles.tagDesign} key={index}>*/}
-          {/*    {text}*/}
-          {/*  </Badge>*/}
-          {/*))}*/}
+          {tags.map(({ text, type }, index) => (
+            <Badge bg={type} className={styles.tagDesign} key={index}>
+              {text}
+            </Badge>
+          ))}
         </div>
       </div>
       <div className={styles.cardComments}>
