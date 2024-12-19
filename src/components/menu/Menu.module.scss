@@ -1,7 +1,19 @@
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .menuWrapper {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  cursor: pointer;
 }
 
 .createTaskButton {
@@ -10,18 +22,24 @@
   font-size: 16px;
   font-family: Karla, sans-serif;
   font-weight: 600;
-  //display: flex;
-  align-items: center;
+  display: flex;
   border: none;
   padding: 10px 15px;
-  margin-bottom: 10px;
-  gap: 30px;
+  gap: 8px;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  align-items: center;
+  justify-content: flex-start;
 
-  &:hover {
-    background: #edf2fa;
-    transition: all 0.5s ease;
-  }
+}
+
+.menuWrapper :hover {
+  background: rgba(246, 247, 250, 0.67);
+
+}
+
+.createTaskButton.active {
+  color: #1d2939;
+  animation: pop 0.3s ease;
 }

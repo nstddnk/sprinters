@@ -5,9 +5,13 @@ import { MenuItem } from './menu-item/MenuItem'
 import { NotificationIcon } from '../../icons/notification.icon'
 import { AnalyticsIcon } from '../../icons/analytics.icon'
 import { CreateNewTaskButtonIcon } from '../../icons/create-new-task-button.icon'
+import classNames from 'classnames'
+import { TaskModal } from '../task-modal/TaskModal'
 
 export const Menu = () => {
-  const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
+  const [activeMenuItemId, setActiveMenuItemId] = useState<string | null>(null)
+  const [isCreateTaskActive, setIsCreateTaskActive] = useState<boolean>(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const menuItems = [
     {
@@ -32,18 +36,29 @@ export const Menu = () => {
 
   const handleMenuItemClick = (id: string) => () => {
     setActiveMenuItemId(id)
+    setIsCreateTaskActive(false)
   }
 
   const handleCreateNewTask = () => {
-    console.log('Create New Task clicked')
+    setIsCreateTaskActive(true)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setIsCreateTaskActive(false)
   }
 
   return (
     <div className={styles.menuWrapper}>
-      <button className={styles.createTaskButton} onClick={handleCreateNewTask}>
+      <button
+        className={classNames(styles.createTaskButton, { [styles.active]: isCreateTaskActive })}
+        onClick={handleCreateNewTask}
+      >
         <CreateNewTaskButtonIcon />
-        Create New Task
+        Create new task
       </button>
+      <div className="border-top my-3"></div>
       {menuItems.map(({ id, Icon, ...item }) => (
         <MenuItem
           {...item}
@@ -54,6 +69,7 @@ export const Menu = () => {
           {Icon}
         </MenuItem>
       ))}
+      <TaskModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   )
 }
