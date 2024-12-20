@@ -1,18 +1,27 @@
 import React from 'react'
 import { FloatingLabel, Form } from 'react-bootstrap'
+import styles from './Select.module.scss'
 
-type SelectProps = {
+type SelectOption = {
   label: string
   value: string
 }
 
-export const Select = ({ label, value }: SelectProps) => (
-  <div>
+type SelectProps = {
+  label: string
+  value: string
+  options: SelectOption[]
+}
+
+export const Select = ({ label, value, options }: SelectProps) => (
+  <div className={styles.wrapper}>
     <FloatingLabel label={label} className="mb-3">
       <Form.Select value={value}>
-        <option value="" disabled>
-          Select {label}
-        </option>
+        {options.map((option: SelectOption) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
       </Form.Select>
     </FloatingLabel>
   </div>

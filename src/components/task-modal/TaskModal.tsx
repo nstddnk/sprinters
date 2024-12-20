@@ -10,31 +10,46 @@ type TaskModalProps = {
   onClose: () => void
 }
 
-export const TaskModal = ({ isOpen, onClose }: TaskModalProps) => {
-  if (!isOpen) return null
+const statusOptions = [
+  { value: 'Do', label: 'Do' },
+  { value: 'Doing', label: 'Doing' },
+  { value: 'Done', label: 'Done' },
+]
 
-  return (
-    <Modal show={isOpen} onHide={onClose}>
+const priorityOptions = [
+  { value: 'High', label: 'High' },
+  { value: 'Medium', label: 'Medium' },
+  { value: 'Low', label: 'Low' },
+]
+
+export const TaskModal = ({ isOpen, onClose }: TaskModalProps) => {
+  return isOpen ? (
+    <Modal className={styles.modal} show={isOpen} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title className={styles.modalTitleInput}>New Task</Modal.Title>
+        <Modal.Title>New task</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <Input label="Title of Project" value="" placeholder="Title of Project" />
+
+      <Modal.Body className={styles.bodyWrapper}>
+        <Input label="Title of Project" placeholder="Title of Project" />
+
         <div className={styles.selectContainers}>
-          <Select label="Status" value="status" />
-          <Select label="Priority" value="priority" />
+          <Select label="Status" options={statusOptions} value="status" />
+          <Select label="Priority" options={priorityOptions} value="priority" />
         </div>
-        <Input label="Date" value="" placeholder="Select date" type="date" />
-        <Input label="Summary" value="" placeholder="Summary" />
-        <Textarea label="Description" value="" placeholder="Description" />
-        <Input label="Assignee" value="" placeholder="Assignee" />
+
+        <Input label="Date" placeholder="Select date" type="date" />
+        <Input label="Summary" placeholder="Summary" />
+        <Textarea label="Description" placeholder="Description" />
+        <Input label="Assignee" placeholder="Assignee" />
       </Modal.Body>
+
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>
           Close
         </Button>
+
         <Button variant="primary">Save changes</Button>
       </Modal.Footer>
     </Modal>
-  )
+  ) : null
 }

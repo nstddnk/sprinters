@@ -1,8 +1,16 @@
-.modalTitle {
-  font-size: 14px;
-}
-
 .selectContainers {
   display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.bodyWrapper {
+  display: block;
   gap: 16px;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.modal {
+  font-family: Karla, sans-serif;
 }
