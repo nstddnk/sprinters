@@ -4,6 +4,7 @@ import styles from './TaskModal.module.scss'
 import { Input } from '../commons/input/Input'
 import { Select } from '../commons/select/Select'
 import { Textarea } from '../commons/textarea/Textarea'
+import { Formik, Form } from 'formik'
 
 type TaskModalProps = {
   isOpen: boolean
@@ -22,34 +23,65 @@ const priorityOptions = [
   { value: 'Low', label: 'Low' },
 ]
 
+type FormValues = {
+  title: string
+  status: string
+  priority: string
+  date: string
+  summary: string
+  description: string
+  assignee: string
+}
+
 export const TaskModal = ({ isOpen, onClose }: TaskModalProps) => {
+  const initialValues = {
+    title: '',
+    status: '',
+    priority: '',
+    date: '',
+    summary: '',
+    description: '',
+    assignee: '',
+  }
+
+  const handleSubmit = (values: FormValues) => {
+    console.log('Submitted values:', values)
+    onClose()
+  }
+
   return isOpen ? (
     <Modal className={styles.modal} show={isOpen} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>New task</Modal.Title>
+        <Modal.Title>Create new task</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body className={styles.bodyWrapper}>
-        <Input label="Title of Project" placeholder="Title of Project" />
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <Form>
+          <Modal.Body className={styles.bodyWrapper}>
+            <Input name="title" label="Title of Project" placeholder="Title of Project" />
 
-        <div className={styles.selectContainers}>
-          <Select label="Status" options={statusOptions} value="status" />
-          <Select label="Priority" options={priorityOptions} value="priority" />
-        </div>
+            <div className={styles.selectContainers}>
+              <Select name="status" label="Status" options={statusOptions} />
+              <Select name="priority" label="Priority" options={priorityOptions} />
+            </div>
 
-        <Input label="Date" placeholder="Select date" type="date" />
-        <Input label="Summary" placeholder="Summary" />
-        <Textarea label="Description" placeholder="Description" />
-        <Input label="Assignee" placeholder="Assignee" />
-      </Modal.Body>
+            <Input name="date" label="Date" placeholder="Select date" type="date" />
+            <Input name="summary" label="Summary" placeholder="Summary" />
+            <Textarea name="description" label="Description" placeholder="Description" />
+            <Input name="assignee" label="Assignee" placeholder="Assignee" />
+          </Modal.Body>
 
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
-          Close
-        </Button>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={onClose}>
+              Close
+            </Button>
 
-        <Button variant="primary">Save changes</Button>
-      </Modal.Footer>
+            <Button variant="primary" type="submit">
+              Create
+            </Button>
+          </Modal.Footer>
+        </Form>
+      </Formik>
     </Modal>
   ) : null
 }
