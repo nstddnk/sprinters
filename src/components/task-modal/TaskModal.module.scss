@@ -1,16 +1,24 @@
-.selectContainers {
-  display: flex;
-  gap: 5px;
-  width: 100%;
-}
-
 .bodyWrapper {
-  display: block;
+  display: flex;
   gap: 16px;
   flex-direction: column;
   padding: 16px;
 }
 
-.modal {
-  font-family: Karla, sans-serif;
+.taskScope {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.taskDetails {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.tagsCheckboxes {
+  display: flex;
+  gap: 11px;
+  align-items: center;
 }

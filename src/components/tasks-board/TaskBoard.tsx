@@ -28,8 +28,9 @@ export const TaskBoard = ({ tasks }: TaskBoardProps) => {
       }
       return acc
     },
-    { todos: [], doing: [], done: [] }, // Начальные значения для каждого массива
+    { todos: [], doing: [], done: [] },
   )
+
   return (
     <div className={styles.taskBoard}>
       <div className={styles.taskColumn}>

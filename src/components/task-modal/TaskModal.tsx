@@ -1,12 +1,21 @@
 import React from 'react'
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal, Form as BootstrapForm } from 'react-bootstrap'
 import styles from './TaskModal.module.scss'
 import { Input } from '../common/input/Input'
 import { Select } from '../common/select/Select'
 import { Textarea } from '../common/textarea/Textarea'
 import { Form, Formik } from 'formik'
 import { Tag, Task } from '../tasks-board/task.interface'
-import { priorityOptions, statusOptions, TaskStatusEnum } from '../tasks-board/task.options'
+import {
+  issueOptions,
+  IssueTypeEnum,
+  priorityOptions,
+  statusOptions,
+  tagsOptions,
+  TaskStatusEnum,
+} from '../tasks-board/task.options'
+import { taskDto } from '../../utils/dto/task.dto'
+import { FileUploader } from '../common/file-uploader/FileUploader'
 
 type TaskModalProps = {
   isOpen: boolean
@@ -16,27 +25,25 @@ type TaskModalProps = {
 
 export type FormValues = {
   title: string
-  status: string
+  status: TaskStatusEnum
   priority: string
-  date: string
-  summary: string
+  issueType: IssueTypeEnum
   description: string
   assignee: string
   imgUrl: string
   link: string
-  fileUrl: string
   tags: Tag[]
 }
 
 export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => {
   const initialValues = {
     title: '',
-    status: TaskStatusEnum.DONE,
+    status: TaskStatusEnum.TODO,
     priority: '',
-    date: '',
-    summary: '',
+    issueType: IssueTypeEnum.Task,
     description: '',
     assignee: '',
+    test: '',
     imgUrl: '',
     link: '',
     fileUrl: '',
@@ -44,12 +51,12 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
   }
 
   const handleSubmit = (values: FormValues) => {
-    onCreateTask(values as unknown as Task)
+    onCreateTask({ ...taskDto, ...values, imgUrl: values.imgUrl || '' })
     onClose()
   }
 
   return isOpen ? (
-    <Modal className={styles.modal} show={isOpen} onHide={onClose}>
+    <Modal show={isOpen} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>Create new task</Modal.Title>
       </Modal.Header>
@@ -57,21 +64,36 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
           <Modal.Body className={styles.bodyWrapper}>
-            <Input name="title" label="Title of Project" placeholder="Title of Project" />
+            <Input name="title" label="Title" />
 
-            <div className={styles.selectContainers}>
+            <div className={styles.taskDetails}>
               <Select name="status" label="Status" options={statusOptions} />
               <Select name="priority" label="Priority" options={priorityOptions} />
             </div>
 
-            <Input name="date" label="Date" placeholder="Select date" type="date" />
-            <Input name="summary" label="Summary" placeholder="Summary" />
-            <Textarea name="description" label="Description" placeholder="Description" />
-            <Input name="assignee" label="Assignee" placeholder="Assignee" />
+            <div className={styles.taskScope}>
+              <Select
+                name="assignee"
+                label="Assignee"
+                options={[
+                  { label: 'Mark', value: 'Mark' },
+                  { label: 'Bob', value: 'Bob' },
+                  { label: 'Kira', value: 'Kira' },
+                ]}
+              />
+              <Select name="issueType" label="Issue type" options={issueOptions} />
+            </div>
 
-            <Input name="imgUrl" label="Image URL" placeholder="Paste image URL" />
-            <Input name="link" label="External Link" placeholder="Paste external link" />
-            <Input name="fileUrl" label="File URL" placeholder="Paste file URL" />
+            <Textarea name="description" label="Description" />
+            <FileUploader label="Upload Image" name="imgUrl" types={['JPG', 'PNG', 'GIF']} />
+            <Input name="link" label="External Link" />
+
+            <div className={styles.tagsCheckboxes}>
+              <h6>Choose Tags:</h6>
+              {tagsOptions.map((tag) => (
+                <BootstrapForm.Check key={tag.text} type="checkbox" label={tag.text} />
+              ))}
+            </div>
           </Modal.Body>
 
           <Modal.Footer>

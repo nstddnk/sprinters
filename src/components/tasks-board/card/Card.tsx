@@ -6,17 +6,7 @@ import { CommentIcon } from '../../../icons/comment.icon'
 import { Badge } from 'react-bootstrap'
 import { Task } from '../task.interface'
 
-export const Card = ({
-  title,
-  createdBy,
-  createdAt,
-  description,
-  imgUrl,
-  fileUrl,
-  tags,
-  link,
-  comments,
-}: Task) => {
+export const Card = ({ title, createdBy, createdAt, description, tags, link }: Task) => {
   return (
     <div className={styles.cardBlock}>
       <div className={styles.card}>
@@ -28,7 +18,7 @@ export const Card = ({
         </div>
         <p className={styles.description}>{description} </p>
         <div className={styles.imagePlaceholder}>
-          <img src={imgUrl} alt="Loaded" className={styles.loadedImage} />
+          <img alt="Loaded" className={styles.loadedImage} />
         </div>
         <div className={styles.linksSection}>
           <div className={styles.linkWrapper}>
@@ -36,10 +26,6 @@ export const Card = ({
             <a className={styles.ellipsisText} target="_blank" href={link} rel="noreferrer">
               {link}
             </a>
-          </div>
-          <div className={styles.linkWrapper}>
-            <PaperClipIcon />
-            <a className={styles.ellipsisText}>{fileUrl}</a>
           </div>
         </div>
         <div className={styles.tagSection}>
@@ -50,10 +36,10 @@ export const Card = ({
           ))}
         </div>
       </div>
-      <div className={styles.cardComments}>
-        <CommentIcon />
-        <div className={styles.amountComments}>{comments?.length}</div>
-      </div>
+      {/*<div className={styles.cardComments}>*/}
+      {/*  <CommentIcon />*/}
+      {/*  <div className={styles.amountComments}>{comments?.length}</div>*/}
+      {/*</div>*/}
     </div>
   )
 }

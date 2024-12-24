@@ -19,7 +19,7 @@ export const Select = ({ name, label, options }: SelectProps) => {
 
   return (
     <div className={styles.wrapper}>
-      <FloatingLabel label={label} className="mb-3">
+      <FloatingLabel label={label}>
         <Form.Select {...field}>
           {options.map((option: SelectOption) => (
             <option key={option.value} value={option.value}>

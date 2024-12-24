@@ -5,16 +5,16 @@ import { useField } from 'formik'
 
 type TextareaProps = {
   label: string
-  placeholder: string
+  placeholder?: string
   name: string
 }
 
-export const Textarea = ({ name, label, placeholder }: TextareaProps) => {
+export const Textarea = ({ name, label, placeholder = '' }: TextareaProps) => {
   const [field] = useField(name)
 
   return (
     <div className={styles.wrapper}>
-      <FloatingLabel label={label} className="mb-3">
+      <FloatingLabel label={label}>
         <Form.Control
           {...field}
           as="textarea"

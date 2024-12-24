@@ -6,16 +6,16 @@ import { useField } from 'formik'
 type InputProps = {
   label: string
   type?: string
-  placeholder: string
+  placeholder?: string
   name: string
 }
 
-export const Input = ({ name, type = 'text', label, placeholder }: InputProps) => {
+export const Input = ({ name, type = 'text', label, placeholder = '' }: InputProps) => {
   const [field] = useField(name)
 
   return (
     <div className={styles.wrapper}>
-      <FloatingLabel label={label} className="mb-3">
+      <FloatingLabel label={label}>
         <Form.Control size="sm" {...field} type={type} placeholder={placeholder} />
       </FloatingLabel>
     </div>
