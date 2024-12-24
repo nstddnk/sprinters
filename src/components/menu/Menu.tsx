@@ -63,7 +63,7 @@ export const Menu = ({ onCreateTask }: MenuProps) => {
         <CreateNewTaskButtonIcon />
         Create new task
       </button>
-      <div className="border-top my-3"></div>
+      <div className="border-top my-3" />
       {menuItems.map(({ id, Icon, ...item }) => (
         <MenuItem
           {...item}

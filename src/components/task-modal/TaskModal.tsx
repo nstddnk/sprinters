@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Modal, Form as BootstrapForm } from 'react-bootstrap'
+import { Button, Modal, Form as BootstrapForm, Badge } from 'react-bootstrap'
 import styles from './TaskModal.module.scss'
 import { Input } from '../common/input/Input'
 import { Select } from '../common/select/Select'
@@ -16,6 +16,7 @@ import {
 } from '../tasks-board/task.options'
 import { taskDto } from '../../utils/dto/task.dto'
 import { FileUploader } from '../common/file-uploader/FileUploader'
+import { Checkbox } from '../common/checkbox/Checkbox'
 
 type TaskModalProps = {
   isOpen: boolean
@@ -32,7 +33,7 @@ export type FormValues = {
   assignee: string
   imgUrl: string
   link: string
-  tags: Tag[]
+  tags: Record<Tag['type'], boolean>
 }
 
 export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => {
@@ -43,11 +44,9 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
     issueType: IssueTypeEnum.Task,
     description: '',
     assignee: '',
-    test: '',
     imgUrl: '',
     link: '',
     fileUrl: '',
-    tags: [],
   }
 
   const handleSubmit = (values: FormValues) => {
@@ -85,13 +84,17 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
             </div>
 
             <Textarea name="description" label="Description" />
-            <FileUploader label="Upload Image" name="imgUrl" types={['JPG', 'PNG', 'GIF']} />
+            <FileUploader name="imgUrl" types={['JPG', 'PNG', 'GIF']} />
             <Input name="link" label="External Link" />
 
             <div className={styles.tagsCheckboxes}>
-              <h6>Choose Tags:</h6>
+              <h4>Tags:</h4>
               {tagsOptions.map((tag) => (
-                <BootstrapForm.Check key={tag.text} type="checkbox" label={tag.text} />
+                <Checkbox
+                  label={<Badge bg={tag.type}>{tag.text}</Badge>}
+                  key={tag.type}
+                  name={`tags.${tag.type}`}
+                />
               ))}
             </div>
           </Modal.Body>

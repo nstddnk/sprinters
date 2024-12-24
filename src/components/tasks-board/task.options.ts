@@ -46,6 +46,6 @@ export const priorityOptions: PriorityType[] = [
 export const urgentTag: Tag = { type: 'success', text: 'Urgent' }
 export const bugTag: Tag = { type: 'danger', text: 'Bug' }
 export const featureTag: Tag = { type: 'warning', text: 'Feature' }
-export const improvementTag: Tag = { type: 'light', text: 'Improvement' }
+export const improvementTag: Tag = { type: 'dark', text: 'Improvement' }
 
 export const tagsOptions: Tag[] = [urgentTag, bugTag, featureTag, improvementTag]
