@@ -3,8 +3,8 @@ import styles from './Card.module.scss'
 import { LinkIcon } from '../../../icons/link.icon'
 import { PaperClipIcon } from '../../../icons/paper-clip.icon'
 import { CommentIcon } from '../../../icons/comment.icon'
-import { Task } from '../../../pages/home/home.interface'
 import { Badge } from 'react-bootstrap'
+import { Task } from '../task.interface'
 
 export const Card = ({
   title,
@@ -43,7 +43,7 @@ export const Card = ({
           </div>
         </div>
         <div className={styles.tagSection}>
-          {tags.map(({ text, type }, index) => (
+          {tags?.map(({ text, type }, index) => (
             <Badge bg={type} className={styles.tagDesign} key={index}>
               {text}
             </Badge>
@@ -52,7 +52,7 @@ export const Card = ({
       </div>
       <div className={styles.cardComments}>
         <CommentIcon />
-        <div className={styles.amountComments}>{comments.length}</div>
+        <div className={styles.amountComments}>{comments?.length}</div>
       </div>
     </div>
   )

@@ -19,7 +19,7 @@ export const Textarea = ({ name, label, placeholder }: TextareaProps) => {
           {...field}
           as="textarea"
           placeholder={placeholder}
-          style={{ height: '100px' }}
+          style={{ height: '70px' }}
         />
       </FloatingLabel>
     </div>

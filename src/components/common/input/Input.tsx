@@ -16,7 +16,7 @@ export const Input = ({ name, type = 'text', label, placeholder }: InputProps) =
   return (
     <div className={styles.wrapper}>
       <FloatingLabel label={label} className="mb-3">
-        <Form.Control {...field} type={type} placeholder={placeholder} />
+        <Form.Control size="sm" {...field} type={type} placeholder={placeholder} />
       </FloatingLabel>
     </div>
   )

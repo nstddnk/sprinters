@@ -7,8 +7,13 @@ import { AnalyticsIcon } from '../../icons/analytics.icon'
 import { CreateNewTaskButtonIcon } from '../../icons/create-new-task-button.icon'
 import classNames from 'classnames'
 import { TaskModal } from '../task-modal/TaskModal'
+import { Task } from '../tasks-board/task.interface'
 
-export const Menu = () => {
+type MenuProps = {
+  onCreateTask: (task: Task) => void
+}
+
+export const Menu = ({ onCreateTask }: MenuProps) => {
   const [activeMenuItemId, setActiveMenuItemId] = useState<string | null>(null)
   const [isCreateTaskActive, setIsCreateTaskActive] = useState<boolean>(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -69,7 +74,7 @@ export const Menu = () => {
           {Icon}
         </MenuItem>
       ))}
-      <TaskModal isOpen={isModalOpen} onClose={closeModal} />
+      <TaskModal isOpen={isModalOpen} onClose={closeModal} onCreateTask={onCreateTask} />
     </div>
   )
 }

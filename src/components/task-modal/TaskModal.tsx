@@ -1,29 +1,20 @@
 import React from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap'
 import styles from './TaskModal.module.scss'
-import { Input } from '../commons/input/Input'
-import { Select } from '../commons/select/Select'
-import { Textarea } from '../commons/textarea/Textarea'
-import { Formik, Form } from 'formik'
+import { Input } from '../common/input/Input'
+import { Select } from '../common/select/Select'
+import { Textarea } from '../common/textarea/Textarea'
+import { Form, Formik } from 'formik'
+import { Tag, Task } from '../tasks-board/task.interface'
+import { priorityOptions, statusOptions, TaskStatusEnum } from '../tasks-board/task.options'
 
 type TaskModalProps = {
   isOpen: boolean
   onClose: () => void
+  onCreateTask: (task: Task) => void
 }
 
-const statusOptions = [
-  { value: 'Do', label: 'Do' },
-  { value: 'Doing', label: 'Doing' },
-  { value: 'Done', label: 'Done' },
-]
-
-const priorityOptions = [
-  { value: 'High', label: 'High' },
-  { value: 'Medium', label: 'Medium' },
-  { value: 'Low', label: 'Low' },
-]
-
-type FormValues = {
+export type FormValues = {
   title: string
   status: string
   priority: string
@@ -31,21 +22,29 @@ type FormValues = {
   summary: string
   description: string
   assignee: string
+  imgUrl: string
+  link: string
+  fileUrl: string
+  tags: Tag[]
 }
 
-export const TaskModal = ({ isOpen, onClose }: TaskModalProps) => {
+export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => {
   const initialValues = {
     title: '',
-    status: '',
+    status: TaskStatusEnum.DONE,
     priority: '',
     date: '',
     summary: '',
     description: '',
     assignee: '',
+    imgUrl: '',
+    link: '',
+    fileUrl: '',
+    tags: [],
   }
 
   const handleSubmit = (values: FormValues) => {
-    console.log('Submitted values:', values)
+    onCreateTask(values as unknown as Task)
     onClose()
   }
 
@@ -69,6 +68,10 @@ export const TaskModal = ({ isOpen, onClose }: TaskModalProps) => {
             <Input name="summary" label="Summary" placeholder="Summary" />
             <Textarea name="description" label="Description" placeholder="Description" />
             <Input name="assignee" label="Assignee" placeholder="Assignee" />
+
+            <Input name="imgUrl" label="Image URL" placeholder="Paste image URL" />
+            <Input name="link" label="External Link" placeholder="Paste external link" />
+            <Input name="fileUrl" label="File URL" placeholder="Paste file URL" />
           </Modal.Body>
 
           <Modal.Footer>
