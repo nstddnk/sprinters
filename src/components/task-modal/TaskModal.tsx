@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Modal, Form as BootstrapForm, Badge } from 'react-bootstrap'
+import { Button, Modal, Badge } from 'react-bootstrap'
 import styles from './TaskModal.module.scss'
 import { Input } from '../common/input/Input'
 import { Select } from '../common/select/Select'
@@ -47,10 +47,12 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
     imgUrl: '',
     link: '',
     fileUrl: '',
+    tags: {} as Record<Tag['type'], boolean>,
   }
 
   const handleSubmit = (values: FormValues) => {
-    onCreateTask({ ...taskDto, ...values, imgUrl: values.imgUrl || '' })
+    const filteredTags = tagsOptions.filter((tag) => values.tags[tag.type])
+    onCreateTask({ ...taskDto, ...values, tags: filteredTags })
     onClose()
   }
 

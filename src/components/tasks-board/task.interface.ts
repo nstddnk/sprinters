@@ -16,7 +16,7 @@ export type PriorityType = {
 }
 
 export type Tag = {
-  type: 'success' | 'danger' | 'warning' | 'dark'
+  type: 'success' | 'danger' | 'info' | 'dark'
   text: string
 }
 
