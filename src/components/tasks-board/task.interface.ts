@@ -33,7 +33,7 @@ export type Task = {
   createdBy: string
   issueType: IssueTypeEnum
   description: string
-  imgUrl: string | null
+  imgUrl: string
   link: string
   tags: Tag[]
 }

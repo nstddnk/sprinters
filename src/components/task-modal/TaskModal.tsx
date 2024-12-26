@@ -15,7 +15,7 @@ import {
   TaskStatusEnum,
 } from '../tasks-board/task.options'
 import { taskDto } from '../../utils/dto/task.dto'
-import { FileUploader } from '../common/file-uploader/FileUploader'
+import { ImageUploader } from '../common/img-uploader/ImageUploader'
 import { Checkbox } from '../common/checkbox/Checkbox'
 
 type TaskModalProps = {
@@ -86,7 +86,7 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
             </div>
 
             <Textarea name="description" label="Description" />
-            <FileUploader name="imgUrl" types={['JPG', 'PNG', 'GIF']} />
+            <ImageUploader name="imgUrl" types={['JPG', 'PNG', 'GIF', 'JPEG']} />
             <Input name="link" label="External Link" />
 
             <div className={styles.tagsCheckboxes}>

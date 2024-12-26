@@ -6,7 +6,7 @@ import { CommentIcon } from '../../../icons/comment.icon'
 import { Badge } from 'react-bootstrap'
 import { Task } from '../task.interface'
 
-export const Card = ({ title, createdBy, createdAt, description, tags, link }: Task) => {
+export const Card = ({ title, createdBy, createdAt, description, tags, link, imgUrl }: Task) => {
   return (
     <div className={styles.cardBlock}>
       <div className={styles.card}>
@@ -18,7 +18,7 @@ export const Card = ({ title, createdBy, createdAt, description, tags, link }: T
         </div>
         <p className={styles.description}>{description} </p>
         <div className={styles.imagePlaceholder}>
-          <img alt="Loaded" className={styles.loadedImage} />
+          <img src={imgUrl} alt="Loaded" className={styles.loadedImage} />
         </div>
         <div className={styles.linksSection}>
           <div className={styles.linkWrapper}>
