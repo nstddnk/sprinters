@@ -12,8 +12,12 @@
 .card {
   display: flex;
   flex-direction: column;
-  align-items: start;
   gap: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
 }
 
 .cardTitle {
@@ -51,7 +55,6 @@
   -webkit-line-clamp: 3;
   max-height: calc(1.5em * 3);
 }
-
 
 .description {
   font-size: 15px;

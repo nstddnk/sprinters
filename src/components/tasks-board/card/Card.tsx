@@ -3,24 +3,16 @@ import styles from './Card.module.scss'
 import { LinkIcon } from '../../../icons/link.icon'
 import { Badge } from 'react-bootstrap'
 import { Task } from '../task.interface'
-import Dropdown from 'react-bootstrap/Dropdown'
+import { OptionsMenu } from '../../options-menu/OptionsMenu'
 
 export const Card = ({ title, createdBy, createdAt, description, tags, link, imgUrl }: Task) => {
   return (
     <div className={styles.cardBlock}>
       <div className={styles.card}>
-        {/*<Dropdown align="end">*/}
-        {/*  <Dropdown.Toggle variant="light" id="dropdown-basic" className={styles.menuButton}>*/}
-        {/*    &#x2026; /!* Горизонтальные три точки *!/*/}
-        {/*  </Dropdown.Toggle>*/}
-
-        {/*  <Dropdown.Menu>*/}
-        {/*    <Dropdown.Item onClick={() => alert('Редактировать')}>Редактировать</Dropdown.Item>*/}
-        {/*    <Dropdown.Item onClick={() => alert('Удалить')}>Удалить</Dropdown.Item>*/}
-        {/*  </Dropdown.Menu>*/}
-        {/*</Dropdown>*/}
-
-        <h3 className={styles.cardTitle}>{title}</h3>
+        <div className={styles.cardHeader}>
+          <h3 className={styles.cardTitle}>{title}</h3>
+          <OptionsMenu />
+        </div>
         <div className={styles.cardMeta}>
           <span className={styles.time}>{createdAt}</span>
           <span>&#8226;</span>

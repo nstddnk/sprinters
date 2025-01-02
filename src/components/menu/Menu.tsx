@@ -14,7 +14,7 @@ type MenuProps = {
 }
 
 export const Menu = ({ onCreateTask }: MenuProps) => {
-  const [activeMenuItemId, setActiveMenuItemId] = useState<string | null>(null)
+  const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
   const [isCreateTaskActive, setIsCreateTaskActive] = useState<boolean>(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
