@@ -17,6 +17,7 @@ import {
 import { taskDto } from '../../utils/dto/task.dto'
 import { ImageUploader } from '../common/img-uploader/ImageUploader'
 import { Checkbox } from '../common/checkbox/Checkbox'
+import { TaskValidationSchema } from './task-validation-schema'
 
 type TaskModalProps = {
   isOpen: boolean
@@ -46,7 +47,6 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
     assignee: '',
     imgUrl: '',
     link: '',
-    fileUrl: '',
     tags: {} as Record<Tag['type'], boolean>,
   }
 
@@ -62,7 +62,11 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
         <Modal.Title>Create new task</Modal.Title>
       </Modal.Header>
 
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={TaskValidationSchema}
+      >
         <Form>
           <Modal.Body className={styles.bodyWrapper}>
             <Input name="title" label="Title" />

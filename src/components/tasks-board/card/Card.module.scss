@@ -43,11 +43,21 @@
   //padding-left: 10px;
 }
 
+.descriptionWrapper {
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  max-height: calc(1.5em * 3);
+}
+
+
 .description {
   font-size: 15px;
   font-weight: 500;
-  //color: #98a2b3;
-  align-self: stretch;
+  text-overflow: ellipsis;
+  line-height: 1.5;
 }
 
 .imagePlaceholder {
@@ -84,7 +94,7 @@
 
 .ellipsisText {
   white-space: nowrap;
-  max-width: 122px;
+  max-width: 250px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -95,44 +105,4 @@
   overflow-y: scroll;
   width: 100%;
   padding-bottom: 16px;
-}
-
-//.tagDesign {
-//  padding: 6px 12px;
-//  background-color: #f2f4f7;
-//  font-family: $font-family-karla;
-//}
-
-//.tagTextDesign {
-//  color: #475467;
-//  font-size: 14px;
-//  font-weight: 600;
-//}
-
-//.tagDevelopment {
-//  display: flex;
-//  padding: 6px 12px;
-//  align-items: flex-start;
-//  gap: 12px;
-//  border-radius: 6px;
-//  background-color: #d1fadf;
-//}
-
-//.tagTextDevelopment {
-//  color: #12b76a;
-//  font-size: 14px;
-//  font-weight: 600;
-//}
-
-.cardComments {
-  display: flex;
-  height: 24px;
-  align-items: center;
-  gap: 8px;
-}
-
-.amountComments {
-  font-size: 15px;
-  font-weight: 500;
-  color: #98a2b3;
 }

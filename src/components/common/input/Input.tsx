@@ -11,13 +11,20 @@ type InputProps = {
 }
 
 export const Input = ({ name, type = 'text', label, placeholder = '' }: InputProps) => {
-  const [field] = useField(name)
+  const [field, meta] = useField(name)
 
   return (
     <div className={styles.wrapper}>
       <FloatingLabel label={label}>
-        <Form.Control size="sm" {...field} type={type} placeholder={placeholder} />
+        <Form.Control
+          size="sm"
+          {...field}
+          type={type}
+          placeholder={placeholder}
+          className={meta.error ? styles.error : ''}
+        />
       </FloatingLabel>
+      <p className={styles.errorMessage}>{meta.error}</p>
     </div>
   )
 }

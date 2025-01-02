@@ -10,7 +10,7 @@ type TextareaProps = {
 }
 
 export const Textarea = ({ name, label, placeholder = '' }: TextareaProps) => {
-  const [field] = useField(name)
+  const [field, meta] = useField(name)
 
   return (
     <div className={styles.wrapper}>
@@ -20,8 +20,10 @@ export const Textarea = ({ name, label, placeholder = '' }: TextareaProps) => {
           as="textarea"
           placeholder={placeholder}
           style={{ height: '70px' }}
+          className={meta.error ? styles.error : ''}
         />
       </FloatingLabel>
+      <p className={styles.errorMessage}>{meta.error}</p>
     </div>
   )
 }

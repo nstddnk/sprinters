@@ -20,11 +20,6 @@ export type Tag = {
   text: string
 }
 
-// export type Comment = {
-//   text: string
-//   userName: string
-// }
-
 export type Task = {
   id: string
   status: TaskStatusEnum
