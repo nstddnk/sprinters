@@ -1,28 +1,48 @@
-.optionsMenuButton {
+.dotsButton {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.optionsMenuWrapper {
+.wrapper {
+  width: 28px;
+  height: 28px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  justify-content: center;
   position: relative;
+  border-radius: 4px;
+
+  &:hover:not(.isActiveMenu) {
+    background-color: #f1f1f1;
+  }
 }
 
-.dropdownMenu {
+.isActiveMenu {
+  background-color: #eae7e7;
+}
+
+.menuItems {
   display: flex;
   background-color: white;
   flex-direction: column;
   border-radius: 6px;
   border: 1px solid #e1e1e1;
-  padding: 8px 4px;
+  padding: 4px;
   width: 160px;
-  gap: 8px;
+  gap: 4px;
   box-shadow: 0px 24px 72px -12px rgba(0, 0, 0, 0.12);
   z-index: 100;
   position: absolute;
-  top: 24px;
+  top: 30px;
   right: 0;
+  opacity: 0;
+  transform: translateX(15px);
+
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s linear 0s;
+  }
 }
+

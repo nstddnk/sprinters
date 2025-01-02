@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './Menu.module.scss'
 import { TasksIcon } from '../../icons/tasks.icon'
-import { MenuItem } from './menu-item/MenuItem'
+import { MenuItem } from '../common/menu-item/MenuItem'
 import { NotificationIcon } from '../../icons/notification.icon'
 import { AnalyticsIcon } from '../../icons/analytics.icon'
 import { CreateNewTaskButtonIcon } from '../../icons/create-new-task-button.icon'

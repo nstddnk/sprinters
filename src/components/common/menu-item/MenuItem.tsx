@@ -8,12 +8,24 @@ export type MenuItemProps = {
   children: React.JSX.Element
   isActive: boolean
   onClick: () => void
+  size?: 'small' | 'medium'
 }
 
-export const MenuItem = ({ title, counter, children, isActive, onClick }: MenuItemProps) => {
+export const MenuItem = ({
+  title,
+  counter,
+  children,
+  isActive,
+  onClick,
+  size = 'medium',
+}: MenuItemProps) => {
   return (
     <div
-      className={cn(styles.menuItemWrapper, { [styles.menuItemActive]: isActive })}
+      className={cn(styles.menuItemWrapper, {
+        [styles.menuItemActive]: isActive,
+        [styles.smallItem]: size === 'small',
+        [styles.mediumItem]: size === 'medium',
+      })}
       onClick={onClick}
     >
       <div className={styles.contentButton}>

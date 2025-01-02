@@ -1,4 +1,4 @@
-@import '../../../global/styles/_variables';
+@import '../../../global/styles/variables';
 
 @keyframes pop {
   0% {
@@ -14,16 +14,23 @@
 
 .menuItemWrapper {
   display: flex;
-  padding: 12px 8px;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 4px;
   background: #fff;
   cursor: pointer;
+
+  &:hover:not(.menuItemActive) {
+    background: rgba(246, 247, 250, 0.67);
+  }
 }
 
-.menuItemWrapper:hover {
-  background: rgba(246, 247, 250, 0.67);
+.smallItem {
+  padding: 8px 4px;
+}
+
+.mediumItem {
+  padding: 12px 8px;
 }
 
 .menuItemActive {
