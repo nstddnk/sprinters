@@ -34,19 +34,22 @@ export const Card = ({
         <div className={styles.descriptionWrapper}>
           <p className={styles.description}>{description} </p>
         </div>
+
         {imgUrl && (
           <div className={styles.imagePlaceholder}>
             <img src={imgUrl} alt="Loaded" className={styles.loadedImage} />
           </div>
         )}
-        <div className={styles.linksSection}>
-          <div className={styles.linkWrapper}>
-            <LinkIcon />
-            <a className={styles.ellipsisText} target="_blank" href={link} rel="noreferrer">
-              {link}
-            </a>
+        {link && (
+          <div className={styles.linksSection}>
+            <div className={styles.linkWrapper}>
+              <LinkIcon />
+              <a className={styles.ellipsisText} target="_blank" href={link} rel="noreferrer">
+                {link}
+              </a>
+            </div>
           </div>
-        </div>
+        )}
         <div className={styles.tagSection}>
           {tags?.map(({ text, type }, index) => (
             <Badge bg={type} key={index}>

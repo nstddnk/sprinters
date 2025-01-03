@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import styles from './Menu.module.scss'
 import { TasksIcon } from '../../icons/tasks.icon'
 import { MenuItem } from '../common/menu-item/MenuItem'
-import { NotificationIcon } from '../../icons/notification.icon'
-import { AnalyticsIcon } from '../../icons/analytics.icon'
+import { SettingsIcon } from '../../icons/settings.icon'
 import { CreateNewTaskButtonIcon } from '../../icons/create-new-task-button.icon'
 import classNames from 'classnames'
 import { TaskModal } from '../task-modal/TaskModal'
 import { Task } from '../tasks-board/task.interface'
+import { LogOutButtonIcon } from '../../icons/log-out-button.icon'
 
 type MenuProps = {
   onCreateTask: (task: Task) => void
@@ -17,31 +17,26 @@ export const Menu = ({ onCreateTask }: MenuProps) => {
   const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
   const [isCreateTaskActive, setIsCreateTaskActive] = useState<boolean>(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isLogOutActive, setIsLogOutActive] = useState<boolean>(false)
 
   const menuItems = [
     {
       Icon: <TasksIcon isActive={'1' === activeMenuItemId} />,
       title: 'Tasks',
-      counter: '11',
+      counter: '3',
       id: '1',
     },
     {
-      Icon: <NotificationIcon isActive={'2' === activeMenuItemId} />,
-      title: 'Notifications',
-      counter: '17',
+      Icon: <SettingsIcon isActive={'2' === activeMenuItemId} />,
+      title: 'Settings',
       id: '2',
-    },
-    {
-      Icon: <AnalyticsIcon isActive={'3' === activeMenuItemId} />,
-      title: 'Analytics',
-      counter: '5',
-      id: '3',
     },
   ]
 
   const handleMenuItemClick = (id: string) => () => {
     setActiveMenuItemId(id)
     setIsCreateTaskActive(false)
+    setIsLogOutActive(false)
   }
 
   const handleCreateNewTask = () => {
@@ -52,6 +47,11 @@ export const Menu = ({ onCreateTask }: MenuProps) => {
   const closeModal = () => {
     setIsModalOpen(false)
     setIsCreateTaskActive(false)
+  }
+
+  const handleLogOutClick = () => {
+    console.log('Log Out button clicked')
+    setIsLogOutActive(true)
   }
 
   return (
@@ -74,6 +74,13 @@ export const Menu = ({ onCreateTask }: MenuProps) => {
           {Icon}
         </MenuItem>
       ))}
+      <button
+        className={classNames(styles.logOutButton, { [styles.active]: isLogOutActive })}
+        onClick={handleLogOutClick}
+      >
+        <LogOutButtonIcon />
+        Log out
+      </button>
       <TaskModal isOpen={isModalOpen} onClose={closeModal} onCreateTask={onCreateTask} />
     </div>
   )

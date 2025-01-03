@@ -15,8 +15,8 @@
 .menuWrapper {
   display: flex;
   flex-direction: column;
-  cursor: pointer;
   gap: 4px;
+  height: 100%;
 }
 
 .createTaskButton {
@@ -27,16 +27,39 @@
   font-weight: 600;
   display: flex;
   border: none;
-  padding: 10px 15px;
+  padding: 12px 8px;
   gap: 8px;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
   align-items: center;
   justify-content: flex-start;
+
+  &.active {
+    color: #1d2939;
+    animation: pop 0.3s ease;
+  }
 }
 
-.createTaskButton.active {
-  color: #1d2939;
-  animation: pop 0.3s ease;
+.logOutButton {
+  background-color: white;
+  color: $secondary-black;
+  font-size: 16px;
+  font-family: Karla, sans-serif;
+  font-weight: 600;
+  display: flex;
+  border: none;
+  padding: 12px 8px;
+  gap: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: auto;
+
+  &.active {
+    color: #1d2939;
+    animation: pop 0.3s ease;
+  }
 }
