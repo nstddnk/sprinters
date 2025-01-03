@@ -5,13 +5,26 @@ import { Badge } from 'react-bootstrap'
 import { Task } from '../task.interface'
 import { OptionsMenu } from '../../options-menu/OptionsMenu'
 
-export const Card = ({ title, createdBy, createdAt, description, tags, link, imgUrl }: Task) => {
+type CardProps = {
+  onDeleteTask: (taskId: string) => void
+}
+export const Card = ({
+  title,
+  createdBy,
+  createdAt,
+  description,
+  tags,
+  link,
+  imgUrl,
+  id,
+  onDeleteTask,
+}: CardProps & Task) => {
   return (
     <div className={styles.cardBlock}>
       <div className={styles.card}>
         <div className={styles.cardHeader}>
           <h3 className={styles.cardTitle}>{title}</h3>
-          <OptionsMenu />
+          <OptionsMenu onDeleteTask={onDeleteTask} cardId={id} />
         </div>
         <div className={styles.cardMeta}>
           <span className={styles.time}>{createdAt}</span>

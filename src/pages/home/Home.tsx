@@ -36,50 +36,13 @@ export const Home = () => {
         },
       ],
     },
-    // {
-    //   id: 2,
-    //   status: 'DONE',
-    //   title: 'Professional procrastination tracker.',
-    //   createdAt: '16th Jan',
-    //   createdBy: 'Emilia',
-    //   description: 'Step 1: Add task. Step 2: Panic.',
-    //   imgUrl: 'https://tech-admin.deliveryhero.net/wp-content/uploads/2021/04/Gofer-.png',
-    //   link: 'https://docs.google.com/',
-    //   fileUrl: 'wow.psd',
-    //   tags: [
-    //     {
-    //       type: 'primary',
-    //       text: 'CoffeeFirst',
-    //     },
-    //     {
-    //       type: 'secondary',
-    //       text: 'StressButMakeItProductive',
-    //     },
-    //     {
-    //       type: 'danger',
-    //       text: 'ForeverPending',
-    //     },
-    //   ],
-    //   comments: [
-    //     {
-    //       userName: 'Mark',
-    //       text: 'wow',
-    //     },
-    //     {
-    //       userName: 'Mark',
-    //       text: 'wow',
-    //     },
-    //     {
-    //       userName: 'Mark',
-    //       text: 'wow',
-    //     },
-    //     {
-    //       userName: 'Mark',
-    //       text: 'wow',
-    //     },
-    //   ],
-    // },
   ])
+
+  const handleDeleteTask = (taskId: string) => {
+    const filteredTasks = tasks.filter((task) => task.id !== taskId)
+    setTasks(filteredTasks)
+  }
+  console.log(tasks)
 
   return (
     <div className={styles.homeWrapper}>
@@ -87,7 +50,7 @@ export const Home = () => {
         <Menu onCreateTask={(task: Task) => setTasks([...tasks, task])} />
       </div>
       <div className={styles.rightPanel}>
-        <TaskBoard tasks={tasks} />
+        <TaskBoard onDeleteTask={handleDeleteTask} tasks={tasks} />
       </div>
     </div>
   )

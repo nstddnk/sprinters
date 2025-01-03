@@ -14,7 +14,7 @@ import {
   tagsOptions,
   TaskStatusEnum,
 } from '../tasks-board/task.options'
-import { taskDto } from '../../utils/dto/task.dto'
+import { v4 as uuidv4 } from 'uuid'
 import { ImageUploader } from '../common/img-uploader/ImageUploader'
 import { Checkbox } from '../common/checkbox/Checkbox'
 import { TaskValidationSchema } from './task-validation-schema'
@@ -52,7 +52,13 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
 
   const handleSubmit = (values: FormValues) => {
     const filteredTags = tagsOptions.filter((tag) => values.tags[tag.type])
-    onCreateTask({ ...taskDto, ...values, tags: filteredTags })
+    onCreateTask({
+      ...values,
+      tags: filteredTags,
+      id: uuidv4(),
+      createdBy: 'Nastenka',
+      createdAt: '24 Jul',
+    })
     onClose()
   }
 

@@ -6,7 +6,17 @@ import { EditIcon } from '../../icons/edit.icon'
 import { DeleteIcon } from '../../icons/delete.icon'
 import cn from 'classnames'
 
-export const OptionsMenu = () => {
+enum MenuActionsEnum {
+  Delete = 'delete',
+  Edit = 'edit',
+}
+
+type OptionMenuProps = {
+  onDeleteTask: (taskId: string) => void
+  cardId: string
+}
+
+export const OptionsMenu = ({ onDeleteTask, cardId }: OptionMenuProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const modalRef = useRef<HTMLDivElement | null>(null)
 
@@ -40,14 +50,20 @@ export const OptionsMenu = () => {
     {
       Icon: <EditIcon />,
       title: 'Edit',
-      id: '1',
+      action: MenuActionsEnum.Edit,
     },
     {
       Icon: <DeleteIcon />,
       title: 'Delete',
-      id: '2',
+      action: MenuActionsEnum.Delete,
     },
   ]
+
+  const handleMenuItemClick = (action: MenuActionsEnum) => () => {
+    if (action === MenuActionsEnum.Delete) {
+      onDeleteTask(cardId)
+    }
+  }
 
   return (
     <div className={cn(styles.wrapper, { [styles.isActiveMenu]: isMenuOpen })} ref={modalRef}>
@@ -56,15 +72,13 @@ export const OptionsMenu = () => {
       </button>
       <div className={cn(styles.menuItems, { [styles.show]: isMenuOpen })}>
         {isMenuOpen &&
-          menuItems.map(({ id, Icon, ...item }, index) => (
-            <React.Fragment key={id}>
+          menuItems.map(({ Icon, action, ...item }, index) => (
+            <React.Fragment key={index}>
               <MenuItem
                 size="small"
                 {...item}
                 isActive={false}
-                onClick={() => {
-                  console.log(item.title)
-                }}
+                onClick={handleMenuItemClick(action)}
               >
                 {Icon}
               </MenuItem>
