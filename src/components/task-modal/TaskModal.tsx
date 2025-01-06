@@ -18,11 +18,13 @@ import { v4 as uuidv4 } from 'uuid'
 import { ImageUploader } from '../common/img-uploader/ImageUploader'
 import { Checkbox } from '../common/checkbox/Checkbox'
 import { TaskValidationSchema } from './task-validation-schema'
+import { boolean } from 'yup'
 
 type TaskModalProps = {
-  isOpen: boolean
   onClose: () => void
   onCreateTask: (task: Task) => void
+  onUpdateTask: (task: Task) => void
+  task: Task | undefined
 }
 
 export type FormValues = {
@@ -37,7 +39,9 @@ export type FormValues = {
   tags: Record<Tag['type'], boolean>
 }
 
-export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => {
+export const TaskModal = ({ onCreateTask, onUpdateTask, onClose, task }: TaskModalProps) => {
+  const isEdit = Boolean(task)
+
   const initialValues = {
     title: '',
     status: TaskStatusEnum.TODO,
@@ -47,28 +51,47 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
     assignee: '',
     imgUrl: '',
     link: '',
-    tags: {} as Record<Tag['type'], boolean>,
+    ...task,
+    tags: (task?.tags ?? []).reduce(
+      (acc, tag: Tag) => ({ ...acc, [tag.type]: true }),
+      {} as Record<Tag['type'], boolean>,
+    ),
   }
-
   const handleSubmit = (values: FormValues) => {
-    const filteredTags = tagsOptions.filter((tag) => values.tags[tag.type])
-    onCreateTask({
-      ...values,
-      tags: filteredTags,
-      id: uuidv4(),
+    const mockData = {
       createdBy: 'Nastenka',
       createdAt: '24 Jul',
-    })
+    }
+
+    const tags = tagsOptions.filter((tag) => values.tags[tag.type])
+
+    if (isEdit) {
+      onUpdateTask({
+        ...values,
+        ...mockData,
+        tags,
+        id: task?.id ?? '',
+      })
+    } else {
+      onCreateTask({
+        ...values,
+        ...mockData,
+        tags,
+        id: uuidv4(),
+      })
+    }
+
     onClose()
   }
 
-  return isOpen ? (
-    <Modal show={isOpen} onHide={onClose}>
+  return (
+    <Modal show={true} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Create new task</Modal.Title>
+        <Modal.Title>{isEdit ? 'Edit Task' : 'Create New Task'}</Modal.Title>
       </Modal.Header>
 
       <Formik
+        enableReinitialize={true}
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={TaskValidationSchema}
@@ -117,11 +140,11 @@ export const TaskModal = ({ isOpen, onCreateTask, onClose }: TaskModalProps) => 
             </Button>
 
             <Button variant="primary" type="submit">
-              Create
+              {isEdit ? 'Save' : 'Create'}
             </Button>
           </Modal.Footer>
         </Form>
       </Formik>
     </Modal>
-  ) : null
+  )
 }

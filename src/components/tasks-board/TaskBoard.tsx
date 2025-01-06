@@ -7,6 +7,7 @@ import { doingOption, doneOption, TaskStatusEnum, toDoOption } from './task.opti
 type TaskBoardProps = {
   tasks: Task[]
   onDeleteTask: (taskId: string) => void
+  onEditTask: (taskId: string) => void
 }
 
 type FilteredTasks = {
@@ -15,7 +16,7 @@ type FilteredTasks = {
   done: Task[]
 }
 
-export const TaskBoard = ({ tasks, onDeleteTask }: TaskBoardProps) => {
+export const TaskBoard = ({ tasks, onDeleteTask, onEditTask }: TaskBoardProps) => {
   const { todos, doing, done } = tasks.reduce(
     (acc: FilteredTasks, task) => {
       if (task.status === TaskStatusEnum.TODO) {
@@ -38,7 +39,7 @@ export const TaskBoard = ({ tasks, onDeleteTask }: TaskBoardProps) => {
         <p className={styles.columnTitle}>{toDoOption.label}</p>
         <div className={styles.cardsWrapper}>
           {todos.map((task) => (
-            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} />
+            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
           ))}
         </div>
       </div>
@@ -46,7 +47,7 @@ export const TaskBoard = ({ tasks, onDeleteTask }: TaskBoardProps) => {
         <p className={styles.columnTitle}>{doingOption.label}</p>
         <div className={styles.cardsWrapper}>
           {doing.map((task) => (
-            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} />
+            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
           ))}
         </div>
       </div>
@@ -54,7 +55,7 @@ export const TaskBoard = ({ tasks, onDeleteTask }: TaskBoardProps) => {
         <p className={styles.columnTitle}>{doneOption.label}</p>
         <div className={styles.cardsWrapper}>
           {done.map((task) => (
-            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} />
+            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
           ))}
         </div>
       </div>

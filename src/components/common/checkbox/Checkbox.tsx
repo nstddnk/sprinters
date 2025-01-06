@@ -14,7 +14,7 @@ export const Checkbox = ({ name, label }: CheckboxProps) => {
   return (
     <div className={styles.wrapper}>
       <Form.Check>
-        <Form.Check.Input type="checkbox" id={name} {...field} />
+        <Form.Check.Input type="checkbox" id={name} {...field} checked={field.value} />
         <Form.Check.Label htmlFor={name}>{label}</Form.Check.Label>
       </Form.Check>
     </div>

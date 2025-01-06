@@ -14,9 +14,10 @@ enum MenuActionsEnum {
 type OptionMenuProps = {
   onDeleteTask: (taskId: string) => void
   cardId: string
+  onEditTask: (taskId: string) => void
 }
 
-export const OptionsMenu = ({ onDeleteTask, cardId }: OptionMenuProps) => {
+export const OptionsMenu = ({ onDeleteTask, onEditTask, cardId }: OptionMenuProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const modalRef = useRef<HTMLDivElement | null>(null)
 
@@ -62,6 +63,9 @@ export const OptionsMenu = ({ onDeleteTask, cardId }: OptionMenuProps) => {
   const handleMenuItemClick = (action: MenuActionsEnum) => () => {
     if (action === MenuActionsEnum.Delete) {
       onDeleteTask(cardId)
+    }
+    if (action === MenuActionsEnum.Edit) {
+      onEditTask(cardId)
     }
   }
 

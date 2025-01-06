@@ -7,6 +7,7 @@ import { OptionsMenu } from '../../options-menu/OptionsMenu'
 
 type CardProps = {
   onDeleteTask: (taskId: string) => void
+  onEditTask: (taskId: string) => void
 }
 export const Card = ({
   title,
@@ -18,13 +19,14 @@ export const Card = ({
   imgUrl,
   id,
   onDeleteTask,
+  onEditTask,
 }: CardProps & Task) => {
   return (
     <div className={styles.cardBlock}>
       <div className={styles.card}>
         <div className={styles.cardHeader}>
           <h3 className={styles.cardTitle}>{title}</h3>
-          <OptionsMenu onDeleteTask={onDeleteTask} cardId={id} />
+          <OptionsMenu onEditTask={onEditTask} onDeleteTask={onDeleteTask} cardId={id} />
         </div>
         <div className={styles.cardMeta}>
           <span className={styles.time}>{createdAt}</span>

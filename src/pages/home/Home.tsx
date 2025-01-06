@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Home.module.scss'
 import { Menu } from '../../components/menu/Menu'
 import { TaskBoard } from '../../components/tasks-board/TaskBoard'
 import { Task } from '../../components/tasks-board/task.interface'
 import { IssueTypeEnum, TaskStatusEnum } from '../../components/tasks-board/task.options'
+import { TaskModal } from '../../components/task-modal/TaskModal'
 
 export const Home = () => {
   const [tasks, setTasks] = useState<Task[]>([
@@ -38,20 +39,51 @@ export const Home = () => {
     },
   ])
 
+  const [currentEditingId, setCurrentEditingId] = useState<string | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const currentEditingTask = tasks.find((task) => task.id === currentEditingId)
+  console.log('currentEditingTask', currentEditingTask)
+
+  const handleUpdateTask = (updatedTask: Task) => {
+    const filteredTasks = tasks.filter((task) => task.id !== updatedTask.id)
+    setTasks([...filteredTasks, updatedTask])
+  }
+
   const handleDeleteTask = (taskId: string) => {
     const filteredTasks = tasks.filter((task) => task.id !== taskId)
     setTasks(filteredTasks)
   }
-  console.log(tasks)
+
+  useEffect(() => {
+    if (currentEditingId) {
+      setIsModalOpen(true)
+    }
+  }, [currentEditingId])
+
+  useEffect(() => {
+    if (!isModalOpen) {
+      setIsModalOpen(false)
+      setCurrentEditingId(null)
+    }
+  }, [isModalOpen])
 
   return (
     <div className={styles.homeWrapper}>
       <div className={styles.leftPanel}>
-        <Menu onCreateTask={(task: Task) => setTasks([...tasks, task])} />
+        <Menu onOpenModal={() => setIsModalOpen(true)} />
       </div>
       <div className={styles.rightPanel}>
-        <TaskBoard onDeleteTask={handleDeleteTask} tasks={tasks} />
+        <TaskBoard onDeleteTask={handleDeleteTask} tasks={tasks} onEditTask={setCurrentEditingId} />
       </div>
+      {isModalOpen && (
+        <TaskModal
+          onClose={() => setIsModalOpen(false)}
+          onCreateTask={(task: Task) => setTasks([...tasks, task])}
+          task={currentEditingTask}
+          onUpdateTask={handleUpdateTask}
+        />
+      )}
     </div>
   )
 }
