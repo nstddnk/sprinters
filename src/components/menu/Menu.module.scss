@@ -23,7 +23,6 @@
   background-color: white;
   color: $secondary-black;
   font-size: 16px;
-  font-family: Karla, sans-serif;
   font-weight: 600;
   display: flex;
   border: none;
@@ -45,7 +44,6 @@
   background-color: white;
   color: $secondary-black;
   font-size: 16px;
-  font-family: Karla, sans-serif;
   font-weight: 600;
   display: flex;
   border: none;
@@ -53,10 +51,9 @@
   gap: 8px;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   align-items: center;
-  justify-content: flex-start;
   margin-top: auto;
+  transition: background-color 0.3s ease;
 
   &.active {
     color: #1d2939;

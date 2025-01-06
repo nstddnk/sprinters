@@ -15,9 +15,9 @@ type MenuProps = {
 
 export const Menu = ({ onCreateTask }: MenuProps) => {
   const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
-  const [isCreateTaskActive, setIsCreateTaskActive] = useState<boolean>(false)
+  const [isCreateTaskActive, setIsCreateTaskActive] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isLogOutActive, setIsLogOutActive] = useState<boolean>(false)
+  const [isLogOutActive, setIsLogOutActive] = useState(false)
 
   const menuItems = [
     {
@@ -36,7 +36,6 @@ export const Menu = ({ onCreateTask }: MenuProps) => {
   const handleMenuItemClick = (id: string) => () => {
     setActiveMenuItemId(id)
     setIsCreateTaskActive(false)
-    setIsLogOutActive(false)
   }
 
   const handleCreateNewTask = () => {
@@ -50,8 +49,8 @@ export const Menu = ({ onCreateTask }: MenuProps) => {
   }
 
   const handleLogOutClick = () => {
-    console.log('Log Out button clicked')
     setIsLogOutActive(true)
+    setTimeout(() => setIsLogOutActive(false), 300)
   }
 
   return (
