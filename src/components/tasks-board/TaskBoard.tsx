@@ -3,6 +3,7 @@ import styles from './TaskBoard.module.scss'
 import { Card } from './card/Card'
 import { Task } from './task.interface'
 import { doingOption, doneOption, TaskStatusEnum, toDoOption } from './task.options'
+import { EmptyTaskBoardIcon } from '../../icons/empty-task-board.icon'
 
 type TaskBoardProps = {
   tasks: Task[]
@@ -34,31 +35,40 @@ export const TaskBoard = ({ tasks, onDeleteTask, onEditTask }: TaskBoardProps) =
   )
 
   return (
-    <div className={styles.taskBoard}>
-      <div className={styles.taskColumn}>
-        <p className={styles.columnTitle}>{toDoOption.label}</p>
-        <div className={styles.cardsWrapper}>
-          {todos.map((task) => (
-            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
-          ))}
+    <>
+      {tasks.length > 0 ? (
+        <div className={styles.taskBoard}>
+          <div className={styles.taskColumn}>
+            <p className={styles.columnTitle}>{toDoOption.label}</p>
+            <div className={styles.cardsWrapper}>
+              {todos.map((task) => (
+                <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
+              ))}
+            </div>
+          </div>
+          <div className={styles.taskColumn}>
+            <p className={styles.columnTitle}>{doingOption.label}</p>
+            <div className={styles.cardsWrapper}>
+              {doing.map((task) => (
+                <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
+              ))}
+            </div>
+          </div>
+          <div className={styles.taskColumn}>
+            <p className={styles.columnTitle}>{doneOption.label}</p>
+            <div className={styles.cardsWrapper}>
+              {done.map((task) => (
+                <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className={styles.taskColumn}>
-        <p className={styles.columnTitle}>{doingOption.label}</p>
-        <div className={styles.cardsWrapper}>
-          {doing.map((task) => (
-            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
-          ))}
+      ) : (
+        <div className={styles.emptyIconWrapper}>
+          <EmptyTaskBoardIcon />
+          <p className={styles.emptyBoardText}>No tasks, no worries. Want to start planning?</p>
         </div>
-      </div>
-      <div className={styles.taskColumn}>
-        <p className={styles.columnTitle}>{doneOption.label}</p>
-        <div className={styles.cardsWrapper}>
-          {done.map((task) => (
-            <Card {...task} key={task.id} onDeleteTask={onDeleteTask} onEditTask={onEditTask} />
-          ))}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 }

@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 export type MenuItemProps = {
   title: string
-  counter?: string
+  counter?: number
   children: React.JSX.Element
   isActive: boolean
   onClick: () => void
@@ -36,7 +36,7 @@ export const MenuItem = ({
           </span>
         </div>
 
-        {counter && (
+        {Boolean(counter) && (
           <div
             className={cn(styles.buttonCounter, {
               [styles.buttonCounterActive]: isActive,

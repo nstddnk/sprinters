@@ -71,7 +71,7 @@ export const Home = () => {
   return (
     <div className={styles.homeWrapper}>
       <div className={styles.leftPanel}>
-        <Menu onOpenModal={() => setIsModalOpen(true)} />
+        <Menu taskCounter={tasks.length} onOpenModal={() => setIsModalOpen(true)} />
       </div>
       <div className={styles.rightPanel}>
         <TaskBoard onDeleteTask={handleDeleteTask} tasks={tasks} onEditTask={setCurrentEditingId} />

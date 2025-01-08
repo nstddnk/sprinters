@@ -8,16 +8,17 @@ import { LogOutButtonIcon } from '../../icons/log-out-button.icon'
 
 type MenuProps = {
   onOpenModal: () => void
+  taskCounter: number
 }
 
-export const Menu = ({ onOpenModal }: MenuProps) => {
+export const Menu = ({ onOpenModal, taskCounter }: MenuProps) => {
   const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
 
   const menuItems = [
     {
       Icon: <TasksIcon isActive={'1' === activeMenuItemId} />,
       title: 'Tasks',
-      counter: '3',
+      counter: taskCounter,
       id: '1',
     },
     {
