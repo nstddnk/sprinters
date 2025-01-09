@@ -5,6 +5,7 @@ import { MenuItem } from '../common/menu-item/MenuItem'
 import { SettingsIcon } from '../../icons/settings.icon'
 import { CreateNewTaskButtonIcon } from '../../icons/create-new-task-button.icon'
 import { LogOutButtonIcon } from '../../icons/log-out-button.icon'
+import { useNavigate } from 'react-router'
 
 type MenuProps = {
   onOpenModal: () => void
@@ -13,6 +14,7 @@ type MenuProps = {
 
 export const Menu = ({ onOpenModal, taskCounter }: MenuProps) => {
   const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
+  const navigate = useNavigate()
 
   const menuItems = [
     {
@@ -32,6 +34,10 @@ export const Menu = ({ onOpenModal, taskCounter }: MenuProps) => {
     setActiveMenuItemId(id)
   }
 
+  const handleLogOut = () => {
+    navigate('/login')
+  }
+
   return (
     <div className={styles.menuWrapper}>
       <button className={styles.createTaskButton} onClick={onOpenModal}>
@@ -49,7 +55,7 @@ export const Menu = ({ onOpenModal, taskCounter }: MenuProps) => {
           {Icon}
         </MenuItem>
       ))}
-      <button className={styles.logOutButton}>
+      <button onClick={handleLogOut} className={styles.logOutButton}>
         <LogOutButtonIcon />
         Log out
       </button>
