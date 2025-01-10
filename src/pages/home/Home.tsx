@@ -5,6 +5,8 @@ import { TaskBoard } from '../../components/tasks-board/TaskBoard'
 import { Task } from '../../components/tasks-board/task.interface'
 import { IssueTypeEnum, TaskStatusEnum } from '../../components/tasks-board/task.options'
 import { TaskModal } from '../../components/task-modal/TaskModal'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 export const Home = () => {
   const [tasks, setTasks] = useState<Task[]>([
@@ -43,7 +45,6 @@ export const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const currentEditingTask = tasks.find((task) => task.id === currentEditingId)
-  console.log('currentEditingTask', currentEditingTask)
 
   const handleUpdateTask = (updatedTask: Task) => {
     const filteredTasks = tasks.filter((task) => task.id !== updatedTask.id)
@@ -74,7 +75,14 @@ export const Home = () => {
         <Menu taskCounter={tasks.length} onOpenModal={() => setIsModalOpen(true)} />
       </div>
       <div className={styles.rightPanel}>
-        <TaskBoard onDeleteTask={handleDeleteTask} tasks={tasks} onEditTask={setCurrentEditingId} />
+        <DndProvider backend={HTML5Backend}>
+          <TaskBoard
+            onUpdateTask={handleUpdateTask}
+            onDeleteTask={handleDeleteTask}
+            tasks={tasks}
+            onEditTask={setCurrentEditingId}
+          />
+        </DndProvider>
       </div>
       {isModalOpen && (
         <TaskModal

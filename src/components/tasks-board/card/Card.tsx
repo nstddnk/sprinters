@@ -4,6 +4,7 @@ import { LinkIcon } from '../../../icons/link.icon'
 import { Badge } from 'react-bootstrap'
 import { Task } from '../task.interface'
 import { OptionsMenu } from '../../options-menu/OptionsMenu'
+import { useDrag } from 'react-dnd'
 
 type CardProps = {
   onDeleteTask: (taskId: string) => void
@@ -21,8 +22,19 @@ export const Card = ({
   onDeleteTask,
   onEditTask,
 }: CardProps & Task) => {
+  const [{ opacity }, drag] = useDrag(
+    () => ({
+      type: 'random',
+      item: { id },
+      collect: (monitor) => ({
+        opacity: monitor.isDragging() ? 0.4 : 1,
+      }),
+    }),
+    [title, 'random'],
+  )
+
   return (
-    <div className={styles.cardBlock}>
+    <div className={styles.cardBlock} ref={drag} style={{ opacity }}>
       <div className={styles.card}>
         <div className={styles.cardHeader}>
           <h3 className={styles.cardTitle}>{title}</h3>
