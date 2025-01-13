@@ -8,9 +8,16 @@ type InputProps = {
   type?: string
   placeholder?: string
   name: string
+  className?: string
 }
 
-export const Input = ({ name, type = 'text', label, placeholder = '' }: InputProps) => {
+export const Input = ({
+  name,
+  type = 'text',
+  label,
+  placeholder = '',
+  className = '',
+}: InputProps) => {
   const [field, meta] = useField(name)
 
   return (
@@ -21,7 +28,7 @@ export const Input = ({ name, type = 'text', label, placeholder = '' }: InputPro
           {...field}
           type={type}
           placeholder={placeholder}
-          className={meta.error ? styles.error : ''}
+          className={meta.error ? `${styles.error} ${className}` : className}
         />
       </FloatingLabel>
       <p className={styles.errorMessage}>{meta.error}</p>

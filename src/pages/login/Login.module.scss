@@ -1,9 +1,35 @@
-.wrapper {
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  align-items: center;
+  height: 100vh;
   background-color: #f8f9fa;
-  padding: 20px;
 }
+
+.form {
+  display: flex;
+  height: 500px;
+  width: 500px;
+  gap: 1rem;
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 10px;
+  border: 1px solid #878787;
+  background: #fff;
+  box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
+}
+
+.button {
+  border-radius: 6px;
+  height: 50px;
+}
+
+.title {
+  color: #000;
+  font-family: Karla, sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
