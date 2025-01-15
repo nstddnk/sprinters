@@ -18,13 +18,12 @@ import { v4 as uuidv4 } from 'uuid'
 import { ImageUploader } from '../common/img-uploader/ImageUploader'
 import { Checkbox } from '../common/checkbox/Checkbox'
 import { TaskValidationSchema } from './task-validation-schema'
-import { boolean } from 'yup'
+import { useDispatch, useSelector } from 'react-redux'
+import { createTask, getTasksById, updateTask } from '../../store/slices/tasksSlice'
 
 type TaskModalProps = {
   onClose: () => void
-  onCreateTask: (task: Task) => void
-  onUpdateTask: (task: Task) => void
-  task: Task | undefined
+  editingId: string | null
 }
 
 export type FormValues = {
@@ -39,20 +38,28 @@ export type FormValues = {
   tags: Record<Tag['type'], boolean>
 }
 
-export const TaskModal = ({ onCreateTask, onUpdateTask, onClose, task }: TaskModalProps) => {
-  const isEdit = Boolean(task)
+const values = {
+  title: '',
+  status: TaskStatusEnum.TODO,
+  priority: '',
+  issueType: IssueTypeEnum.Task,
+  description: '',
+  assignee: '',
+  imgUrl: '',
+  link: '',
+}
+
+export const TaskModal = ({ editingId, onClose }: TaskModalProps) => {
+  const dispatch = useDispatch()
+  const tasksById = useSelector(getTasksById)
+
+  const editingTask: Task | undefined = tasksById[editingId ?? '']
+  const isEdit = Boolean(editingTask)
 
   const initialValues = {
-    title: '',
-    status: TaskStatusEnum.TODO,
-    priority: '',
-    issueType: IssueTypeEnum.Task,
-    description: '',
-    assignee: '',
-    imgUrl: '',
-    link: '',
-    ...task,
-    tags: (task?.tags ?? []).reduce(
+    ...values,
+    ...editingTask,
+    tags: (editingTask?.tags ?? []).reduce(
       (acc, tag: Tag) => ({ ...acc, [tag.type]: true }),
       {} as Record<Tag['type'], boolean>,
     ),
@@ -66,19 +73,23 @@ export const TaskModal = ({ onCreateTask, onUpdateTask, onClose, task }: TaskMod
     const tags = tagsOptions.filter((tag) => values.tags[tag.type])
 
     if (isEdit) {
-      onUpdateTask({
-        ...values,
-        ...mockData,
-        tags,
-        id: task?.id ?? '',
-      })
+      dispatch(
+        updateTask({
+          ...values,
+          ...mockData,
+          tags,
+          id: editingTask?.id ?? '',
+        }),
+      )
     } else {
-      onCreateTask({
-        ...values,
-        ...mockData,
-        tags,
-        id: uuidv4(),
-      })
+      dispatch(
+        createTask({
+          ...values,
+          ...mockData,
+          tags,
+          id: uuidv4(),
+        }),
+      )
     }
 
     onClose()

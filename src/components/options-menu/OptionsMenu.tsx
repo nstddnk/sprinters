@@ -5,6 +5,8 @@ import { MenuItem } from '../common/menu-item/MenuItem'
 import { EditIcon } from '../../icons/edit.icon'
 import { DeleteIcon } from '../../icons/delete.icon'
 import cn from 'classnames'
+import { useDispatch } from 'react-redux'
+import { deleteTask, setEditingTaskId } from '../../store/slices/tasksSlice'
 
 enum MenuActionsEnum {
   Delete = 'delete',
@@ -12,12 +14,12 @@ enum MenuActionsEnum {
 }
 
 type OptionMenuProps = {
-  onDeleteTask: (taskId: string) => void
   cardId: string
-  onEditTask: (taskId: string) => void
 }
 
-export const OptionsMenu = ({ onDeleteTask, onEditTask, cardId }: OptionMenuProps) => {
+export const OptionsMenu = ({ cardId }: OptionMenuProps) => {
+  const dispatch = useDispatch()
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const modalRef = useRef<HTMLDivElement | null>(null)
 
@@ -62,10 +64,10 @@ export const OptionsMenu = ({ onDeleteTask, onEditTask, cardId }: OptionMenuProp
 
   const handleMenuItemClick = (action: MenuActionsEnum) => () => {
     if (action === MenuActionsEnum.Delete) {
-      onDeleteTask(cardId)
+      dispatch(deleteTask(cardId))
     }
     if (action === MenuActionsEnum.Edit) {
-      onEditTask(cardId)
+      dispatch(setEditingTaskId(cardId))
     }
   }
 

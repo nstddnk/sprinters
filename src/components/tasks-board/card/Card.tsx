@@ -6,10 +6,6 @@ import { Task } from '../task.interface'
 import { OptionsMenu } from '../../options-menu/OptionsMenu'
 import { useDrag } from 'react-dnd'
 
-type CardProps = {
-  onDeleteTask: (taskId: string) => void
-  onEditTask: (taskId: string) => void
-}
 export const Card = ({
   title,
   createdBy,
@@ -19,9 +15,7 @@ export const Card = ({
   link,
   imgUrl,
   id,
-  onDeleteTask,
-  onEditTask,
-}: CardProps & Task) => {
+}: Task) => {
   const [{ opacity }, drag] = useDrag(
     () => ({
       type: 'random',
@@ -38,7 +32,7 @@ export const Card = ({
       <div className={styles.card}>
         <div className={styles.cardHeader}>
           <h3 className={styles.cardTitle}>{title}</h3>
-          <OptionsMenu onEditTask={onEditTask} onDeleteTask={onDeleteTask} cardId={id} />
+          <OptionsMenu cardId={id} />
         </div>
         <div className={styles.cardMeta}>
           <span className={styles.time}>{createdAt}</span>

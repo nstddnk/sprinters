@@ -4,40 +4,21 @@ import { Task } from './task.interface'
 import { doingOption, doneOption, toDoOption } from './task.options'
 import { EmptyTaskBoardIcon } from '../../icons/empty-task-board.icon'
 import { Column } from './column/Column'
+import { useSelector } from 'react-redux'
+import { getTasksById } from '../../store/slices/tasksSlice'
 
-type TaskBoardProps = {
-  tasks: Task[]
-  onDeleteTask: (taskId: string) => void
-  onEditTask: (taskId: string) => void
-  onUpdateTask: (task: Task) => void
-}
+export const TaskBoard = () => {
+  const tasksById = useSelector(getTasksById)
 
-export const TaskBoard = ({ tasks, onDeleteTask, onEditTask, onUpdateTask }: TaskBoardProps) => {
+  const tasks = Object.values(tasksById)
+
   return (
     <>
       {tasks.length > 0 ? (
         <div className={styles.taskBoard}>
-          <Column
-            type={toDoOption}
-            tasks={tasks}
-            onDeleteTask={onDeleteTask}
-            onEditTask={onEditTask}
-            onUpdateTask={onUpdateTask}
-          />
-          <Column
-            type={doingOption}
-            tasks={tasks}
-            onDeleteTask={onDeleteTask}
-            onEditTask={onEditTask}
-            onUpdateTask={onUpdateTask}
-          />
-          <Column
-            type={doneOption}
-            tasks={tasks}
-            onDeleteTask={onDeleteTask}
-            onEditTask={onEditTask}
-            onUpdateTask={onUpdateTask}
-          />
+          <Column type={toDoOption} tasks={tasks} />
+          <Column type={doingOption} tasks={tasks} />
+          <Column type={doneOption} tasks={tasks} />
         </div>
       ) : (
         <div className={styles.emptyIconWrapper}>
