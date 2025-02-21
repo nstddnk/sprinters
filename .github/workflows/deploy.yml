@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -13,18 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '22'
+      - name: Set up Git user
+        run: |
+          git config --global user.name "nstddnk"
+          git config --global user.email "nastya.dudnik80@gmail.com"
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Build the project
         run: npm run build
 
       - name: Deploy to GitHub Pages
         run: npm run deploy
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
