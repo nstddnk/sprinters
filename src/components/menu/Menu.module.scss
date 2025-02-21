@@ -20,8 +20,8 @@
 }
 
 .createTaskButton {
-  background-color: white;
-  color: $secondary-black;
+  background-color: $white-color;
+  color: $secondary-black-color;
   font-size: 16px;
   font-weight: 600;
   display: flex;
@@ -33,16 +33,11 @@
   transition: background-color 0.3s ease;
   align-items: center;
   justify-content: flex-start;
-
-  &.active {
-    color: #1d2939;
-    animation: pop 0.3s ease;
-  }
 }
 
 .logOutButton {
-  background-color: white;
-  color: $secondary-black;
+  background-color: $white-color;
+  color: $secondary-black-color;
   font-size: 16px;
   font-weight: 600;
   display: flex;
@@ -53,10 +48,4 @@
   cursor: pointer;
   align-items: center;
   margin-top: auto;
-  transition: background-color 0.3s ease;
-
-  &.active {
-    color: #1d2939;
-    animation: pop 0.3s ease;
-  }
 }

@@ -12,19 +12,6 @@
   }
 }
 
-.menuItemWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  background: #fff;
-  cursor: pointer;
-
-  &:hover:not(.menuItemActive) {
-    background: rgba(246, 247, 250, 0.67);
-  }
-}
-
 .smallItem {
   padding: 8px 4px;
 }
@@ -34,7 +21,7 @@
 }
 
 .menuItemActive {
-  background: #edf2fa;
+  background: $active-item-color;
   animation: pop 0.3s ease;
 }
 
@@ -55,12 +42,12 @@
 .buttonText {
   font-size: 16px;
   font-weight: 600;
-  color: $secondary-black;
+  color: $secondary-black-color;
   transition: all 0.5s ease;
 }
 
 .buttonTextActive {
-  color: #1d2939;
+  color: $dark-navy-color;
   transition: all 0.5s ease;
 }
 
@@ -71,17 +58,17 @@
   width: 20px;
   height: 20px;
   border-radius: 6px;
-  background: #f2f4f7;
+  background: $pale-gray-color;
   transition: all 0.5s ease;
 }
 
 .buttonCounterActive {
-  background: #1d2939;
+  background: $button-counter-active-bg-color;
   transition: all 0.5s ease;
 }
 
 .counterText {
-  color: #344054;
+  color: $counter-text-color;
   font-family: $font-family-karla;
   font-size: 14px;
   font-weight: 500;
@@ -89,6 +76,6 @@
 }
 
 .counterTextActive {
-  color: white;
+  color: $white-color;
   transition: all 0.5s ease;
 }

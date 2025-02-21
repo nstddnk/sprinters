@@ -1,24 +1,21 @@
 import React from 'react'
 import styles from './TaskBoard.module.scss'
-import { Task } from './task.interface'
 import { doingOption, doneOption, toDoOption } from './task.options'
 import { EmptyTaskBoardIcon } from '../../icons/empty-task-board.icon'
 import { Column } from './column/Column'
 import { useSelector } from 'react-redux'
-import { getTasksById } from '../../store/slices/tasksSlice'
+import { getTaskListIds } from '../../store/slices/tasksSlice'
 
 export const TaskBoard = () => {
-  const tasksById = useSelector(getTasksById)
-
-  const tasks = Object.values(tasksById)
+  const taskListIds = useSelector(getTaskListIds)
 
   return (
     <>
-      {tasks.length > 0 ? (
+      {taskListIds.length > 0 ? (
         <div className={styles.taskBoard}>
-          <Column type={toDoOption} tasks={tasks} />
-          <Column type={doingOption} tasks={tasks} />
-          <Column type={doneOption} tasks={tasks} />
+          <Column type={toDoOption} />
+          <Column type={doingOption} />
+          <Column type={doneOption} />
         </div>
       ) : (
         <div className={styles.emptyIconWrapper}>

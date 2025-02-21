@@ -51,12 +51,11 @@ export const tasksSlice = createSlice({
     createTask: (state, action: PayloadAction<Task>) => {
       state.byId[action.payload.id] = action.payload
     },
-    setEditingTaskId: (state, action: PayloadAction<string>) => {
+    setEditingTaskId: (state, action: PayloadAction<string | null>) => {
       state.editingId = action.payload
     },
     updateTask: (state, action: PayloadAction<Task>) => {
       state.byId[action.payload.id] = action.payload
-      state.editingId = null
     },
     deleteTask: (state, action: PayloadAction<string>) => {
       delete state.byId[action.payload]

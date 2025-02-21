@@ -1,9 +1,11 @@
+@import '../../global/styles/variables';
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f8f9fa;
+  background-color: $off-white-color;
 }
 
 .form {
@@ -14,8 +16,8 @@
   flex-direction: column;
   padding: 50px;
   border-radius: 10px;
-  border: 1px solid #878787;
-  background: #fff;
+  border: 1px solid $medium-gray-color;
+  background: $white-color;
   box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
 }
 
@@ -25,7 +27,7 @@
 }
 
 .title {
-  color: #000;
+  color: $black-color;
   font-family: Karla, sans-serif;
   font-size: 25px;
   font-weight: 400;

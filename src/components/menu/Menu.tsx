@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Menu.module.scss'
 import { TasksIcon } from '../../icons/tasks.icon'
 import { MenuItem } from '../common/menu-item/MenuItem'
@@ -17,6 +17,12 @@ export const Menu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (editingId) {
+      setIsModalOpen(true)
+    }
+  }, [editingId])
 
   const menuItems = [
     {
@@ -63,9 +69,7 @@ export const Menu = () => {
           Log out
         </button>
       </div>
-      {(isModalOpen || editingId) && (
-        <TaskModal onClose={() => setIsModalOpen(false)} editingId={editingId} />
-      )}
+      {isModalOpen && <TaskModal onClose={() => setIsModalOpen(false)} editingId={editingId} />}
     </>
   )
 }
