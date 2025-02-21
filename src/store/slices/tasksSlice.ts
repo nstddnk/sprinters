@@ -14,7 +14,7 @@ const initialState: TasksState = {
     1: {
       id: '1',
       status: TaskStatusEnum.TODO,
-      title: 'My to-do list’s to-do list.',
+      title: 'My to-do',
       createdAt: '12th Jan',
       createdBy: 'Mark',
       description: 'Just one step closer to pretending you have it all together.',
