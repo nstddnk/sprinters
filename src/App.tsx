@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 export const App = () => {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename="/kanban-todo">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
