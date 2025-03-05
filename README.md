@@ -1,6 +1,17 @@
-# Getting Started with Create React Home
+# Kanban Todo
 
-This project was bootstrapped with [Create React Home](https://github.com/facebook/create-react-app).
+This is a Kanban board application built with [Create React App](https://github.com/facebook/create-react-app). The app is hosted at [Kanban Todo App](https://nstddnk.github.io/kanban-todo).
+
+## Technologies Used
+
+- [React](https://reactjs.org/) (v18.3.1)
+- [Redux Toolkit](https://redux-toolkit.js.org/) for state management
+- [TypeScript](https://www.typescriptlang.org/) (v4.9.5)
+- [React DnD](https://react-dnd.github.io/react-dnd/about) for drag-and-drop features
+- [Bootstrap](https://getbootstrap.com/) (v5.3.3) & [React-Bootstrap](https://react-bootstrap.github.io/) for styling
+- CSS preprocessor with [Sass](https://sass-lang.com/)
+- [Formik](https://formik.org/) and [Yup](https://github.com/jquense/yup) for form management and validation
+- [Styled-Components](https://styled-components.com/) for styling components
 
 ## Available Scripts
 
@@ -8,39 +19,58 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production in the `build` folder.\
+Optimized for best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run deploy`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Deploys the application to GitHub Pages using [gh-pages](https://github.com/tschaub/gh-pages).\
+The deployed site will be available at the URL specified in the `homepage` field in your `package.json`.
 
-### `npm run eject`
+### `npm run lint`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Runs [ESLint](https://eslint.org/) to check for code quality and issues.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `npm run lint:fix`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Runs ESLint and automatically fixes problems where possible.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `npm run format`
 
-## Learn More
+Formats the codebase using [Prettier](https://prettier.io/).
 
-You can learn more in the [Create React Home documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Key Dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Here are some key packages used in this project:
+
+### Runtime Dependencies:
+
+- **React and React-DOM** – the interface of the application
+- **Redux Toolkit** – for state management and middleware
+- **React Router DOM** – for routing
+- **React DnD** & plugins – for drag-and-drop functionality
+- **Bootstrap** and **React-Bootstrap** – for responsive styling
+- **Formik** and **Yup** – for managing and validating forms
+- **Sass** – for SCSS styling
+- **Styled-Components** – for styled React components
+
+### Development Dependencies:
+
+- **TypeScript** – for project type safety
+- **ESLint** and **Prettier** – for linting and code formatting
+- **gh-pages** – for deployment on GitHub Pages
+
+## Deployment
+
+The project is automatically deployed to GitHub Pages after running the command:
+
+```bash
+npm run deploy
+```
+
+The app will be accessible at: https://nstddnk.github.io/kanban-todo.
