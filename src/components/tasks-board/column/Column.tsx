@@ -18,7 +18,7 @@ export const Column = ({ type }: ColumnProps) => {
 
   const currentTasks = tasks.filter((task: Task) => task.status === type.value)
 
-  const [, drop] = useDrop({
+  const [{ isOver }, drop] = useDrop({
     accept: ['random'],
     drop: (item: Task) => {
       const updatedItem = tasksById[item.id]
@@ -27,14 +27,13 @@ export const Column = ({ type }: ColumnProps) => {
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
     }),
   })
 
   return (
-    <div className={styles.taskColumn} ref={drop}>
+    <div className={styles.taskColumn}>
       <p className={styles.columnTitle}>{type.label}</p>
-      <div className={styles.cardsWrapper}>
+      <div ref={drop} className={`${styles.cardsWrapper} ${isOver ? styles.columnActive : ''}`}>
         {currentTasks.map((task) => (
           <Card {...task} key={task.id} />
         ))}
