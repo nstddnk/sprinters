@@ -10,6 +10,7 @@ export type MenuItemProps = {
   isActive: boolean
   onClick: () => void
   size?: 'small' | 'medium'
+  isClickable?: boolean
 }
 
 export const MenuItem = ({
@@ -20,6 +21,7 @@ export const MenuItem = ({
   isActive,
   onClick,
   size = 'medium',
+  isClickable = true,
 }: MenuItemProps) => {
   return (
     <div
@@ -27,6 +29,7 @@ export const MenuItem = ({
         [styles.menuItemActive]: isActive,
         [styles.smallItem]: size === 'small',
         [styles.mediumItem]: size === 'medium',
+        [styles.pointerCursor]: isClickable,
       })}
       onClick={onClick}
     >

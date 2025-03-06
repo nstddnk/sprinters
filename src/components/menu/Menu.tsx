@@ -60,6 +60,7 @@ export const Menu = () => {
             key={id}
             isActive={id === activeMenuItemId}
             onClick={handleMenuItemClick(id)}
+            isClickable={true}
           >
             {Icon}
           </MenuItem>
