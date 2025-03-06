@@ -4,6 +4,7 @@ import cn from 'classnames'
 
 export type MenuItemProps = {
   title: string
+  className?: string
   counter?: number
   children: React.JSX.Element
   isActive: boolean
@@ -13,6 +14,7 @@ export type MenuItemProps = {
 
 export const MenuItem = ({
   title,
+  className,
   counter,
   children,
   isActive,
@@ -21,7 +23,7 @@ export const MenuItem = ({
 }: MenuItemProps) => {
   return (
     <div
-      className={cn(styles.menuItemWrapper, {
+      className={cn(styles.menuItemWrapper, className, {
         [styles.menuItemActive]: isActive,
         [styles.smallItem]: size === 'small',
         [styles.mediumItem]: size === 'medium',

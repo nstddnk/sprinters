@@ -81,6 +81,7 @@ export const OptionsMenu = ({ cardId }: OptionMenuProps) => {
           menuItems.map(({ Icon, action, ...item }, index) => (
             <React.Fragment key={index}>
               <MenuItem
+                className={styles.menuItem}
                 size="small"
                 {...item}
                 isActive={false}
