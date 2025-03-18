@@ -6,7 +6,6 @@ import { IssueTypeEnum, TaskStatusEnum } from '../../components/tasks-board/task
 
 export interface TasksState {
   byId: { [key: string]: Task }
-  editingId: string | null
 }
 
 const initialState: TasksState = {
@@ -41,7 +40,6 @@ const initialState: TasksState = {
       ],
     },
   },
-  editingId: null,
 }
 
 export const tasksSlice = createSlice({
@@ -50,9 +48,6 @@ export const tasksSlice = createSlice({
   reducers: {
     createTask: (state, action: PayloadAction<Task>) => {
       state.byId[action.payload.id] = action.payload
-    },
-    setEditingTaskId: (state, action: PayloadAction<string | null>) => {
-      state.editingId = action.payload
     },
     updateTask: (state, action: PayloadAction<Task>) => {
       state.byId[action.payload.id] = action.payload
@@ -63,10 +58,9 @@ export const tasksSlice = createSlice({
   },
 })
 
-export const { createTask, updateTask, setEditingTaskId, deleteTask } = tasksSlice.actions
+export const { createTask, updateTask, deleteTask } = tasksSlice.actions
 
 export default tasksSlice.reducer
 
 export const getTasksById = (state: RootState) => state.tasks.byId
 export const getTaskListIds = (state: RootState) => Object.keys(getTasksById(state))
-export const getTaskEditingId = (state: RootState) => state.tasks.editingId

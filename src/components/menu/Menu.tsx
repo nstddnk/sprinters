@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './Menu.module.scss'
 import { TasksIcon } from '../../icons/tasks.icon'
 import { MenuItem } from '../common/menu-item/MenuItem'
@@ -6,23 +6,16 @@ import { SettingsIcon } from '../../icons/settings.icon'
 import { CreateNewTaskButtonIcon } from '../../icons/create-new-task-button.icon'
 import { LogOutButtonIcon } from '../../icons/log-out-button.icon'
 import { useNavigate } from 'react-router'
-import { TaskModal } from '../task-modal/TaskModal'
 import { useSelector } from 'react-redux'
-import { getTaskEditingId, getTaskListIds } from '../../store/slices/tasksSlice'
+import { getTaskListIds } from '../../store/slices/tasksSlice'
+import { TaskModal } from '../task-modal/TaskModal'
 
 export const Menu = () => {
-  const editingId = useSelector(getTaskEditingId)
   const taskListIds = useSelector(getTaskListIds)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [activeMenuItemId, setActiveMenuItemId] = useState<string>('1')
   const navigate = useNavigate()
-
-  useEffect(() => {
-    if (editingId) {
-      setIsModalOpen(true)
-    }
-  }, [editingId])
 
   const menuItems = [
     {
@@ -70,7 +63,7 @@ export const Menu = () => {
           Log out
         </button>
       </div>
-      {isModalOpen && <TaskModal onClose={() => setIsModalOpen(false)} editingId={editingId} />}
+      {isModalOpen && <TaskModal onClose={() => setIsModalOpen(false)} />}
     </>
   )
 }

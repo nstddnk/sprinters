@@ -19,16 +19,11 @@ import { ImageUploader } from '../common/img-uploader/ImageUploader'
 import { Checkbox } from '../common/checkbox/Checkbox'
 import { TaskValidationSchema } from './task-validation-schema'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  createTask,
-  getTasksById,
-  setEditingTaskId,
-  updateTask,
-} from '../../store/slices/tasksSlice'
+import { createTask, getTasksById, updateTask } from '../../store/slices/tasksSlice'
 
 type TaskModalProps = {
   onClose: () => void
-  editingId: string | null
+  editingId?: string | null
 }
 
 export type FormValues = {
@@ -97,16 +92,11 @@ export const TaskModal = ({ editingId, onClose }: TaskModalProps) => {
       )
     }
 
-    handleClose()
-  }
-
-  const handleClose = () => {
-    dispatch(setEditingTaskId(null))
     onClose()
   }
 
   return (
-    <Modal show={true} onHide={handleClose}>
+    <Modal show={true} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>{isEdit ? 'Edit Task' : 'Create New Task'}</Modal.Title>
       </Modal.Header>
@@ -156,7 +146,7 @@ export const TaskModal = ({ editingId, onClose }: TaskModalProps) => {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={onClose}>
               Close
             </Button>
 

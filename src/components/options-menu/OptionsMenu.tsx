@@ -6,7 +6,8 @@ import { EditIcon } from '../../icons/edit.icon'
 import { DeleteIcon } from '../../icons/delete.icon'
 import cn from 'classnames'
 import { useDispatch } from 'react-redux'
-import { deleteTask, setEditingTaskId } from '../../store/slices/tasksSlice'
+import { deleteTask } from '../../store/slices/tasksSlice'
+import { TaskModal } from '../task-modal/TaskModal'
 
 enum MenuActionsEnum {
   Delete = 'delete',
@@ -22,6 +23,7 @@ export const OptionsMenu = ({ cardId }: OptionMenuProps) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const modalRef = useRef<HTMLDivElement | null>(null)
+  const [editingId, setEditingId] = useState<string | null>(null)
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState)
@@ -67,7 +69,9 @@ export const OptionsMenu = ({ cardId }: OptionMenuProps) => {
       dispatch(deleteTask(cardId))
     }
     if (action === MenuActionsEnum.Edit) {
-      dispatch(setEditingTaskId(cardId))
+      setEditingId(cardId)
+      toggleMenu()
+      // dispatch(setEditingTaskId(cardId))
     }
   }
 
@@ -76,9 +80,9 @@ export const OptionsMenu = ({ cardId }: OptionMenuProps) => {
       <button className={styles.dotsButton} type="button" onClick={toggleMenu}>
         <ThreeDotsIcon />
       </button>
-      <div className={cn(styles.menuItems, { [styles.show]: isMenuOpen })}>
-        {isMenuOpen &&
-          menuItems.map(({ Icon, action, ...item }, index) => (
+      {isMenuOpen && (
+        <div className={cn(styles.menuItems, { [styles.show]: isMenuOpen })}>
+          {menuItems.map(({ Icon, action, ...item }, index) => (
             <React.Fragment key={index}>
               <MenuItem
                 className={styles.menuItem}
@@ -92,7 +96,9 @@ export const OptionsMenu = ({ cardId }: OptionMenuProps) => {
               {index !== menuItems.length - 1 && <div className="border-top" />}
             </React.Fragment>
           ))}
-      </div>
+        </div>
+      )}
+      {editingId && <TaskModal onClose={() => setEditingId(null)} editingId={editingId} />}
     </div>
   )
 }
