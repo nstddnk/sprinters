@@ -2,22 +2,17 @@
 
 .homeWrapper {
   display: flex;
-  height: 100vh;
+  flex-direction: column;
   width: 100%;
-  background-color: $pale-gray-color;
 }
 
-.leftPanel {
-  flex: 0 0 285px;
-  overflow: hidden;
-  position: static;
-  top: 0;
-  background-color: $white-color;
-  padding: 16px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+.main {
+  display: flex;
+  flex-direction: column;
 }
 
-.rightPanel {
-  flex: 1;
-  overflow-y: hidden;
+.footer {
+  height: 200px;
+  width: 1500px;
+  background-color: #515b6f;
 }
