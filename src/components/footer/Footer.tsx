@@ -17,45 +17,45 @@ export const Footer = () => {
       </div>
 
       <div className={styles.clients}>
-        <h4 className={styles.titleH}>Клієнтам</h4>
+        <h4 className={styles.feedbackAction}>Клієнтам</h4>
         <ul className={styles.section}>
           <li>
-            <a href="/">Головна</a>
+            <a href="#">Головна</a>
           </li>
           <li>
-            <a href="/about">Про нас</a>
+            <a href="#">Про нас</a>
           </li>
           <li>
-            <a href="/prices">Ціни</a>
+            <a href="#">Ціни</a>
           </li>
           <li>
-            <a href="/routes">Маршрути</a>
+            <a href="#">Маршрути</a>
           </li>
           <li>
-            <a href="/privacy">Політика приватності</a>
+            <a href="#">Політика приватності</a>
           </li>
         </ul>
       </div>
 
       <div className={styles.drivers}>
-        <h4 className={styles.titleH}>Перевізникам</h4>
+        <h4 className={styles.feedbackAction}>Перевізникам</h4>
         <ul className={styles.section}>
           <li>
-            <a href="/docs">Help Docs</a>
+            <a href="#">Help Docs</a>
           </li>
           <li>
-            <a href="/cabinet">Особистий кабінет</a>
+            <a href="#">Особистий кабінет</a>
           </li>
           <li>
-            <a href="/updates">Оновлення</a>
+            <a href="#">Оновлення</a>
           </li>
           <li>
-            <a href="/contact">Контакти</a>
+            <a href="#">Контакти</a>
           </li>
         </ul>
       </div>
       <div className={styles.connection}>
-        <h4 className={styles.titleH}>Зворотній зв’язок</h4>
+        <h4 className={styles.feedbackAction}>Зворотній зв’язок</h4>
         <p className={styles.feedbackDescription}>
           Маєш пропозиції щодо покращення <br /> сервісу – пиши нам!
         </p>
@@ -84,8 +84,8 @@ export const Footer = () => {
       </div>
 
       <div className={styles.bottom}>
-        <p className={styles.bottomInfo}>2024 @ Sprinters. All rights reserved.</p>
-        <div className={styles.socials}>
+        <p>2024 @ Sprinters. All rights reserved.</p>
+        <div>
           <img src={smimages} alt="image" />
         </div>
       </div>

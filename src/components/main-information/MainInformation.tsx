@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './MainInformation.module.scss'
 import { TwitterIcon } from '../../icons/TwitterIcon'
 import { FacebookIcon } from '../../icons/FacebookIcon'
-import { vehicleImages } from '../../utils/vehicle-images'
+import { articleImages } from '../../utils/article-images'
 import { RightSidebar } from '../right-sidebar/RightSidebar'
 
 export const MainInformation = () => {
@@ -43,7 +43,7 @@ export const MainInformation = () => {
           </a>
         </div>
         <div className={styles.vehiclesGallery}>
-          {vehicleImages.map((src, index) => (
+          {articleImages.map((src, index) => (
             <img
               key={index}
               src={src}

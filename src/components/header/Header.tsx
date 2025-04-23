@@ -35,7 +35,7 @@ export const Header = () => {
 
         <div className={styles.divider} />
 
-        <Button className={`${styles.login} ${styles.active}`} size="sm" active>
+        <Button className={styles.login} size="sm">
           Увійти
         </Button>
       </div>

@@ -4,7 +4,7 @@ import { Header } from '../../components/header/Header'
 import { ProfileInformation } from '../../components/profile-information/ProfileInformation'
 import { MainInformation } from '../../components/main-information/MainInformation'
 import Employees from '../../components/employees/Employees'
-import Services from '../../components/services/Services'
+import { Services } from '../../components/services/Services'
 import { Feedback } from '../../components/feedback/Feedback'
 import { Footer } from '../../components/footer/Footer'
 

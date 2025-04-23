@@ -9,10 +9,14 @@ import { Pagination } from 'swiper/modules'
 import { StarsIcon } from '../../icons/StarsIcon'
 import photo1 from '../../global/images/photo1.png'
 import photo2 from '../../global/images/photo2.png'
+import { FooterPatern2 } from '../../icons/FooterPatern2'
+import { FooterPatern1 } from '../../icons/FooterPatern1'
 
 export const Feedback = () => {
   return (
     <div className={styles.wrapper}>
+      <FooterPatern2 className={styles.footerPaternSecond} />
+      <FooterPatern1 className={styles.footerPaternFirst} />
       <div className={styles.feedbackBlock}>
         <h2 className={styles.title}>
           <span>Що</span> кажуть люди?
@@ -27,10 +31,12 @@ export const Feedback = () => {
 
       <div className={styles.feedbackCard}>
         <Swiper
+          className={styles.swiper}
           modules={[Pagination]}
-          spaceBetween={32}
+          spaceBetween={12}
           slidesPerView={2}
           height={410}
+          loop
           pagination={{ clickable: true }}
         >
           <SwiperSlide>
@@ -45,7 +51,7 @@ export const Feedback = () => {
               </div>
 
               <div className={styles.stars}>
-                <p className={styles.paragraph}>
+                <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                   exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -65,7 +71,7 @@ export const Feedback = () => {
                 </div>
               </div>
 
-              <p className={styles.paragraph}>
+              <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
@@ -89,7 +95,7 @@ export const Feedback = () => {
               </div>
 
               <div className={styles.stars}>
-                <p className={styles.paragraph}>
+                <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                   exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -109,7 +115,7 @@ export const Feedback = () => {
                 </div>
               </div>
 
-              <p className={styles.paragraph}>
+              <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum

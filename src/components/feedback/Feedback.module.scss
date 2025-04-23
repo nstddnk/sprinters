@@ -1,8 +1,35 @@
 .wrapper {
+  position: relative;
+  overflow: hidden;
   display: flex;
-  padding: 48px 124px 96px;
+  padding: 48px 124px 54px;
   background-color: #f8f8fd;
   justify-content: space-between;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85px;
+    height: 85px;
+    background-color: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+}
+
+.footerPaternFirst {
+  position: absolute;
+  bottom: -64px;
+  top: -202px;
+  right: -219px;
+}
+
+.footerPaternSecond {
+  position: absolute;
+  right: -322px;
+  top: -212px;
+  left: 906px;
 }
 
 .feedbackBlock {
@@ -60,6 +87,16 @@
   display: flex;
   width: 738px;
   margin-right: -64px;
+
+  & > .swiper-pagination {
+    background-color: red !important;
+    left: -300px !important;
+  }
+}
+
+.swiper {
+  padding-bottom: 63px !important;
+  padding-left: 33px !important;
 }
 
 .slide {
@@ -72,8 +109,6 @@
   box-shadow: 0px 4px 16px 0px rgba(37, 50, 75, 0.15);
   padding: 30px 20px;
   gap: 22px;
-}
-.paragraph {
 }
 
 .aboutMember {

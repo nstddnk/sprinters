@@ -7,7 +7,7 @@ import { ToiletIcon } from '../../icons/ToiletIcon'
 import { PetIcon } from '../../icons/PetIcon'
 import { SeatIcon } from '../../icons/SeatIcon'
 
-const Services = () => {
+export const Services = () => {
   return (
     <div className={styles.wrapper}>
       <h3 className={styles.title}>Сервіс</h3>
@@ -42,5 +42,3 @@ const Services = () => {
     </div>
   )
 }
-
-export default Services

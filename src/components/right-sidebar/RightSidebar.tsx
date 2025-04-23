@@ -24,7 +24,7 @@ export const RightSidebar = () => {
         <div className={styles.divider} />
       </div>
 
-      <div className={styles.calendarBlock}>
+      <div>
         <h3 className={styles.title}>Календар поїздок</h3>
 
         <div className={styles.calendarWrapper}>

@@ -75,10 +75,16 @@
 }
 
 .login {
+  background-color: transparent;
   color: #4640de;
-  border-radius: 0px;
+  border: none;
   padding: 12px 24px;
   font-weight: 600;
+
+  &:hover {
+    background-color: #4640de;
+    color: white;
+  }
 }
 
 .active {
@@ -89,6 +95,10 @@
   padding: 12px 24px;
   font-size: 16px;
   font-weight: 600;
+  &:hover {
+    background-color: #4640de;
+    color: white;
+  }
 }
 
 .divider {
