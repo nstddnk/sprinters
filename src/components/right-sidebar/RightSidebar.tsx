@@ -1,7 +1,10 @@
-import styles from './RIghtSidebar.module.scss'
 import React from 'react'
 import { servedCountries } from '../../utils/served-countries'
 import { Arrow } from '../../icons/Arrow'
+import { DayPicker } from 'react-day-picker'
+import classNames from 'react-day-picker/style.module.css'
+import styles from './RightSidebar.module.scss'
+import { Button } from 'react-bootstrap'
 
 export const RightSidebar = () => {
   return (
@@ -23,9 +26,15 @@ export const RightSidebar = () => {
 
       <div className={styles.calendarBlock}>
         <h3 className={styles.title}>Календар поїздок</h3>
-        <button className={styles.buyButton}>
-          <span>＋</span> Купити квиток
-        </button>
+
+        <div className={styles.calendarWrapper}>
+          <Button className={styles.buyButton}>
+            <span className={styles.icon}>＋</span>
+            <span>Купити квиток</span>
+          </Button>
+
+          <DayPicker animate mode="multiple" className={styles.daypicker} classNames={classNames} />
+        </div>
       </div>
     </div>
   )

@@ -6,6 +6,7 @@ import { MainInformation } from '../../components/main-information/MainInformati
 import Employees from '../../components/employees/Employees'
 import Services from '../../components/services/Services'
 import { Feedback } from '../../components/feedback/Feedback'
+import { Footer } from '../../components/footer/Footer'
 
 export const Home = () => {
   return (
@@ -18,7 +19,9 @@ export const Home = () => {
         <Services />
         <Feedback />
       </main>
-      <footer className={styles.footer}></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }

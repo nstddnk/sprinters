@@ -18,7 +18,9 @@ export const Employees = () => {
             <div className={styles.experience}>Досвід роботи: {experience}</div>
             <div className={styles.social}>
               {social.map((Icon, i) => (
-                <Icon key={i} />
+                <a key={i} href="">
+                  <Icon key={i} />
+                </a>
               ))}
             </div>
           </div>

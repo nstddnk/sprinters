@@ -44,7 +44,9 @@ export const ProfileInformation = () => {
           <div className={styles.contactInformation}>
             <div className={styles.siteLink}>
               <MoonIcon />
-              <span>https://stripe.com</span>
+              <a href="https://stripe.com" target="_blank" rel="noopener noreferrer">
+                <span>https://stripe.com</span>
+              </a>
             </div>
             <div className={styles.phoneNumber}>
               <MobileIcon />

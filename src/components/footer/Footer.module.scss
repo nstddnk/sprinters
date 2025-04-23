@@ -1,0 +1,134 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 48px 124px;
+  background-color: #1e1e26;
+  color: #d1d5db;
+  flex-wrap: wrap;
+}
+
+.brand {
+  width: 376px;
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+}
+
+.brandText {
+  font-size: 16px;
+  line-height: 160%;
+  color: #f3f4f6;
+  height: 64px;
+}
+
+.titleH {
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 160%;
+  color: #fff;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style-type: none;
+  & > li {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+  }
+}
+
+.clients {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.drivers {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.connection {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.feedbackDescription {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+.form {
+  display: flex;
+  margin: 16px 0;
+  width: 100%;
+  gap: 8px;
+  max-width: 376px;
+}
+
+.input {
+  border: none;
+  border-radius: inherit !important;
+  color: #a8adb7 !important;
+  font-size: 16px !important;
+}
+
+.button {
+  background-color: #4640de;
+  color: white;
+  font-weight: 700;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: inherit !important;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #3b36c4;
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 160%;
+  color: #a8adb7;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bottom {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-top: 1px solid #2c2c37;
+  padding-top: 44px;
+  display: flex;
+  justify-content: space-between;
+  width: 1355px;
+  height: 2px;
+}
+
+bottomInfo {
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+}
