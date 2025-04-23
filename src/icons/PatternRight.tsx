@@ -1,6 +1,7 @@
 import React from 'react'
+import { Props } from './FooterPatern1'
 
-export const PatternRight = ({ className }: any) => {
+export const PatternRight = ({ className }: Props) => {
   return (
     <svg
       className={className}

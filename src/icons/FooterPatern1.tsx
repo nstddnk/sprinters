@@ -1,5 +1,9 @@
 import React from 'react'
-export const FooterPatern1 = ({ className }: any) => {
+export type Props = {
+  className?: string
+}
+
+export const FooterPatern1 = ({ className }: Props) => {
   return (
     <svg
       className={className}
